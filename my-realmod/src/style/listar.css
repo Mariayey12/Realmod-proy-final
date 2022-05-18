@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.divListar{
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.ATRE{
+
+    margin-top: 10%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.divCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    width: 20%;
+    margin: 4%;
+    background-color: rgb(145, 177, 145)! important;
+}
+
+.btn{
+    margin: 4%;
+}

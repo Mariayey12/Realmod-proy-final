@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: initial;
+}
+
+.divLogin{
+    padding: 3rem 0rem 3rem 0rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.svg-img{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+}
+
+.svg-img img{
+    width: 100%;
+}
+
+.logoRegistro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logoLogin img {
+    filter: drop-shadow(2px 2px 3px white);
+    width: 200px;
+  }
+
+  
+.formLogin{
+    width: 40%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.43);
+    gap: .8rem;
+    background: #e8e8e8;
+}
+
+.formLogin h1{
+    width: 100%;
+    text-align: center;
+    padding: .5rem;
+    font-size: calc(1rem + 1vw);
+    font-weight: bold;
+    text-transform: capitalize;
+    color: rgb(0, 120, 161);    
+}
+
+.formLogin .field{
+    width: 90%;
+    height: 40px;
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.43);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.formLogin .field::placeholder{
+    text-align: center;
+    padding: .3rem;
+    color: rgba(0, 0, 0, 0.335);
+}
+
+.divGoogle{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divGoogle .google{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: .3rem;
+    border: none;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.43);
+    font-weight: normal;
+    font-size: calc(.5rem + 1vw);
+    text-transform: capitalize;
+    transition: all .3s;
+}
+
+.divGoogle .google:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.656);
+}
+
+
+.divGoogle .google:active{
+    transform: scale(1);
+    color: blue;
+}
+
+
+
+.divFacebook{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFacebook .facebook{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: .3rem;
+    border: none;
+    color: white;
+    background-color: #3b5998 ;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.43);
+    font-weight: normal;
+    font-size: calc(.5rem + 1vw);
+    text-transform: capitalize;
+    transition: all .3s;
+}
+
+
+.divFacebook .facebook:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.656);
+}
+
+.divFacebook .facebook:active{
+    transform: scale(1);
+    color: black;
+}
+
+.btn-login{
+    width: 100%;
+}
+
+.btn-login .btn{
+    width: 50%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(6, 152, 133);
+    color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.43);
+    transition: all .3s;
+}
+
+
+.btn-login .btn:hover{
+    transform: scale(1.05);
+    color: white;
+}
+
+.btn-login .btn:active{
+    transform: scale(1);
+}
+
+
+.Ir-registro{
+    width: 40%;
+    color: rgba(88, 88, 88, 0.879);
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.227);
+}
+
+
+.Ir-registro .link{
+    text-decoration: none;
+    color: rgb(17, 90, 216);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.679);
+    transition: all .3s;
+}
+
+.Ir-registro .link:hover{
+    transform: scale(1.1);
+    color: black;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.656);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .formLogin{
+        width: 90%;
+    }
+}
