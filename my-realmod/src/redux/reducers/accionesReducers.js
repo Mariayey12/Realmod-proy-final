@@ -6,25 +6,25 @@ const initialState = {
 
 export const accionesReducers = (state = initialState, action) => {
     switch (action.type) {
-        case typesAcciones.addFrase:
+        case typesAcciones.addPropiedad:
             return {
                 acciones: [action.payload]
             }
-        case typesAcciones.listFrase:
+        case typesAcciones.listPropiedad:
 
             return {
                 acciones: [...action.payload]
             }
 
-        case typesAcciones.editarFrase:
+        case typesAcciones.editarPropiedad:
             return {
                 ...state
             }
 
-        case typesAcciones.deleteFrase:
+        case typesAcciones.deletePropiedad:
             return {
                 ...state,
-                acciones: state.acciones.filter(p => p.id !== action.payload)
+                acciones: state.acciones.filter(prod => prod.id !== action.payload)
             }
 
         default:

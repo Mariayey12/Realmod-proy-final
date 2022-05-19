@@ -2,7 +2,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Login from '../Components/Login'
-import Registro from '../Components/Regitro'
+import Registro from '../Components/Registro'
 import LandingPage from '../Components/LandingPage'
 import PublicRouters from '../routes/PublicRouters'
 import DashboardRouters from './DashboardRouters'
@@ -42,14 +42,14 @@ const App = () => {
       <Routes>
         <Route path="/login" element={
           <PublicRouters isAuth={isLoggedIn}>
-            <Login />
+            <Login/>
           </PublicRouters>
         } />
 
 
         <Route path="/registro" element={
           <PublicRouters isAuth={isLoggedIn}>
-            <Registro />
+            <Registro/>
           </PublicRouters>
         } />
         

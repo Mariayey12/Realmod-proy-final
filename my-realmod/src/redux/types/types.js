@@ -1,8 +1,8 @@
 export const typesAcciones = {
-    addFrase: 'addFrase',
-    listFrase: 'listFrase',
-    editarFrase: 'editarFrase',
-    deleteFrase: 'deleteFrase',
+    addPropiedad: 'addPropiedad',
+    listPropiedad: 'listPropiedad',
+    editarPropiedad: 'editarPropiedad',
+    deletePropiedad: 'deletePropiedad',
 }
 
 

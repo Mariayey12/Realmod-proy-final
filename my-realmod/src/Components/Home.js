@@ -1,11 +1,11 @@
 import React from 'react'
-import { useDispatch, useSelecto, useSelector } from 'react-redux';
+import { useDispatch,  useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logoutAsync } from '../redux/actions/actionLogin'
 import { useEffect } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { deleteAsync, listAsyn } from '../redux/actions/actionAcciones'
-import "../styles/listar.css"
+import "../style/listar.css"
 import Editar from './Editar';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
@@ -36,10 +36,10 @@ const Home = () => {
 
   const editar = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
-    const traerFrases = acciones.find(t => t.id === id)
+    const traerPropiedades = acciones.find(t => t.id === id)
 
     setModal(true)
-    setEnviarDatosModal(traerFrases)
+    setEnviarDatosModal(traerPropiedades)
 
   }
 
@@ -48,7 +48,7 @@ const Home = () => {
   const handleEliminar = (id) => {
 
     Swal.fire({
-      title: 'Eliminar Producto?',
+      title: 'Eliminar Propiedad?',
       text: "¿Desea eliminar este producto?",
       icon: 'warning',
       showCancelButton: true,
@@ -61,7 +61,7 @@ const Home = () => {
         dispatch(deleteAsync(id))
 
         Swal.fire(
-          'Producto Eliminado!'
+          'Propiedad Eliminado!'
         )
       }
     })
@@ -71,12 +71,16 @@ const Home = () => {
 
   return (
     <div className="container-fluid divListar">
-
-      {/* <button onClick={logout}>Cerrar Sesion</button>
-      <Link to="/addFrases">AGREGAR FRASE</Link> */}
-
-      <div className="ATRE">Atrévete a Vivir</div>
-
+{/* 
+       <button onClick={logout}>Cerrar Sesion</button> */}
+    
+      <div className="container-logo">
+      <center><h9 className='our'>OUR PROPIETIE</h9></center>
+         <img src='https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png' alt="logo"/>
+        </div>
+        
+      <div className="ATRE">Our Featured Properties</div>
+     
       <div className="divCards">
         {
 
@@ -84,10 +88,34 @@ const Home = () => {
             <Card key={f.id}>
               <Card.Img variant="top" src={f.foto} />
               <Card.Body>
-                <Card.Title>{f.creador}</Card.Title>
-                <Card.Text>
-                  {f.frase}
+              <div>
+              
+              <Card.Title>{f.categoria}</Card.Title>
+              </div>
+              <div>
+                <Card.Title>{f.propiedad}</Card.Title>
+                </div>
+                <div>
+                <Card.Text><img  src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png"/>{f.localitation}  </Card.Text>
+                  </div>
+
+                  <div>
+                  <Card.Text><img src="https://res.cloudinary.com/academiageek1/image/upload/v1652920898/product-realmod/sldrdabp6nogpdvejht2.png" />
+                  {f.cama}
+                  </Card.Text>
+                  </div>
+
+                  <div>
+                  <Card.Text> <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png" />
+                  {f.baño}
+                  </Card.Text>
+                  </div>
+
+                  <div>
+                  <Card.Text> <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                  {f.pie}
                 </Card.Text>
+                </div>
                 <Button variant="warning" onClick={() => editar(f.id)}>Editar</Button>
                 <Button variant="warning" onClick={() => handleEliminar(f.id)}>Eliminar</Button>
               </Card.Body>

@@ -8,16 +8,16 @@ import { typesAcciones } from "../types/types";
 
 
 //-------------agregar---------------//
-export const addFraseAsync = (frase) => {
-    console.log(frase);
+export const addPropiedadAsync = (propiedad) => {
+    console.log(propiedad);
     return (dispatch) => {
-        addDoc(collection(baseDato, "fraseBD"), frase)
+        addDoc(collection(baseDato, "PropiedadesBD"), propiedad)
             .then(resp => {
-                dispatch(addFraseSync(frase))
+                dispatch(addPropiedadSync(propiedad))
                 Swal.fire({
-                    position: 'center',
+                    position:'center',
                     icon: 'success',
-                    title: 'frase Agregada Correctamente!',
+                    title: 'Propiedad Agregada Correctamente!',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -28,10 +28,10 @@ export const addFraseAsync = (frase) => {
     }
 }
 
-export const addFraseSync = (frase) => {
+export const addPropiedadSync = (propiedad) => {
     return {
-        type: typesAcciones.addFrase,
-        payload: frase
+        type: typesAcciones.addPropiedad,
+        payload: propiedad
     }
 }
 
@@ -39,40 +39,40 @@ export const addFraseSync = (frase) => {
 //---------------listar----------------//
 export const listAsyn = () => {
     return async (dispatch) => {
-        const colleccionTraer = await getDocs(collection(baseDato, "fraseBD"))
-        const frase = []
+        const colleccionTraer = await getDocs(collection(baseDato, "PropiedadesBD"))
+        const propiedad = []
         colleccionTraer.forEach((doc) => {
-            frase.push({
+            propiedad.push({
                 ...doc.data()
             })
         })
-        dispatch(listSync(frase))
+        dispatch(listSync(propiedad))
     }
 }
 
-export const listSync = (frase) => {
+export const listSync = (propiedad) => {
     return {
-        type: typesAcciones.listFrase,
-        payload: frase
+        type: typesAcciones.listPropiedad,
+        payload: propiedad
     }
 
 }
 
 //---------------------Editar-----------//
-export const editAsync = (ids, frase) => {
+export const editAsync = (ids, propiedad) => {
     return async (dispatch) => {
-        const colleccionTraer = collection(baseDato, "fraseBD")
+        const colleccionTraer = collection(baseDato, "PropiedadesBD")
         const q = query(colleccionTraer, where("id", "==", ids))
         const traerDatosQ = await getDocs(q) //traigame todo el objeto de firestore
         let id
         traerDatosQ.forEach(async (docu) => {
             id = docu.id
         })
-        const documenRef = doc(baseDato, "fraseBD", id)
+        const documenRef = doc(baseDato, "PropiedadesBD", id)
 
-        await updateDoc(documenRef, frase)
+        await updateDoc(documenRef, propiedad)
             .then(resp => {
-                dispatch(editSync(frase))
+                dispatch(editSync(propiedad))
                 dispatch(listAsyn())
                 console.log(resp)
             })
@@ -80,10 +80,10 @@ export const editAsync = (ids, frase) => {
     }
 }
 
-export const editSync = (frase) => {
+export const editSync = (propiedad) => {
     return {
-        type: typesAcciones.editarFrase,
-        payload: frase
+        type: typesAcciones.editarPropiedad,
+        payload: propiedad
     }
 
 }
@@ -93,11 +93,11 @@ export const editSync = (frase) => {
 //-------------------delete--------------------//
 export const deleteAsync = (id) => {
     return async (dispatch) => {
-        const colleccionTrae = collection(baseDato, "fraseBD")
+        const colleccionTrae = collection(baseDato, "PropiedadesBD")
         const q = query(colleccionTrae, where("id", "==", id))
         const traerDatosQ = await getDocs(q)
         traerDatosQ.forEach((docum => {
-            deleteDoc(doc(baseDato, "fraseBD", docum.id))
+            deleteDoc(doc(baseDato, "PropiedadesBD", docum.id))
         }))
         dispatch(deleteSync(id))
     }
@@ -106,7 +106,7 @@ export const deleteAsync = (id) => {
 export const deleteSync = (id) => {
     console.log(id);
     return {
-        type: typesAcciones.deleteFrase,
+        type: typesAcciones.deletePropiedad,
         payload: id
     }
 

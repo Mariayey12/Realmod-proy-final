@@ -9,10 +9,16 @@
     margin: 0 auto;
 
 }
-
+.container-logo{
+    margin: 0 auto;
+}
+.our{
+    margin: 0 auto;
+  background-color:  rgba(92, 141, 137, 1) 100%;
+}
 .ATRE{
 
-    margin-top: 10%;
+    margin-top: 3%;
     font-size: 2rem;
     text-align: center;
 }
@@ -31,10 +37,10 @@
     word-wrap: break-word;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
-    width: 20%;
+    border-radius: 0.10rem;
+    width: 25%;
     margin: 4%;
-    background-color: rgb(145, 177, 145)! important;
+    background-color: rgb(246, 249, 246)! important;
 }
 
 .btn{

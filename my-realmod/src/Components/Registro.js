@@ -3,7 +3,6 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import "../style/Registro.css"
-//import wave from '../images/Nav-wave.svg'
 import { useDispatch } from 'react-redux';
 import { RegisterAsyncronico } from '../redux/actions/actionRegister';
 import logo from '../image/Logo.png'
@@ -25,9 +24,9 @@ const Registro = () => {
 
     return (
         <div className="divRegistro">
-            <div className="svg-img">
+         {/*    <div className="svg-img">
                 <img src={wave} alt='wave' />
-            </div>
+            </div> */}
             <div className="logoRegistro">
                 <img src={logo} alt='logo' />
             </div>

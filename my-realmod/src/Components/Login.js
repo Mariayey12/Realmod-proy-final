@@ -31,9 +31,7 @@ const Login = () => {
 
   return (
     <div className="divLogin">
-      <div className="svg-img">
-        <img src={wave} alt='wave'/>
-      </div>
+      
       <div className="logoLogin">
         <img src={logo} alt='logo' />
       </div>
