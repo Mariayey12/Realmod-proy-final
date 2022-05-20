@@ -88,6 +88,39 @@ export const editSync = (propiedad) => {
 
 }
 
+//---------------------Ver-----------//
+export const verAsync = (ids, propiedad) => {
+    return async (dispatch) => {
+        const colleccionTraer = collection(baseDato, "PropiedadesBD")
+        const q = query(colleccionTraer, where("id", "==", ids))
+        const traerDatosQ = await getDocs(q) //traigame todo el objeto de firestore
+        let id
+        traerDatosQ.forEach(async (docu) => {
+            id = docu.id
+        })
+        const documenRef = doc(baseDato, "PropiedadesBD", id)
+
+        await updateDoc(documenRef, propiedad)
+            .then(resp => {
+                dispatch(verSync(propiedad))
+                dispatch(listAsyn())
+                console.log(resp)
+            })
+            .catch((err) => console.log(err))
+    }
+}
+
+export const verSync = (propiedad) => {
+    return {
+        type: typesAcciones.verPropiedad,
+        payload: propiedad
+    }
+
+}
+
+
+
+
 
 
 //-------------------delete--------------------//

@@ -20,6 +20,10 @@ export const accionesReducers = (state = initialState, action) => {
             return {
                 ...state
             }
+            case typesAcciones.verPropiedad:
+                return {
+                    ...state
+                }
 
         case typesAcciones.deletePropiedad:
             return {

@@ -1,8 +1,9 @@
 export const typesAcciones = {
-    addPropiedad: 'addPropiedad',
-    listPropiedad: 'listPropiedad',
-    editarPropiedad: 'editarPropiedad',
-    deletePropiedad: 'deletePropiedad',
+    addPropiedad:'addPropiedad',
+    listPropiedad:'listPropiedad',
+    editarPropiedad:'editarPropiedad',
+    verPropiedad:'verPropiedad',
+    deletePropiedad:'deletePropiedad',
 }
 
 

@@ -34,6 +34,9 @@ const NavBars = () => {
             <li className="item_nav">
               <Link to="/listPropiedad">Ver</Link>
             </li>
+           {/*  <li className="item_nav">
+              <Link to="/verPropiedad">Ver</Link>
+            </li> */}
             <li className="item_nav">
               <Link to="/">Pages</Link>
             </li>

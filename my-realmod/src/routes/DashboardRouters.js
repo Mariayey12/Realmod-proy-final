@@ -14,6 +14,7 @@ const DashboardRouters = () => {
         <Routes>
         <Route path="/" element={<Home />}/>
           <Route path="/addPropiedad" element={<Propiedades/>}/>
+          
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
     

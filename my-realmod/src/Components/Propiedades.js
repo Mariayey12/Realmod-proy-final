@@ -29,6 +29,7 @@ const Propiedades = () => {
   const dispatch = useDispatch();
 
   const [values, handleInputChange, reset] = useForm({
+    valor: "",
     propiedad: "",
     categoria: "",
     localitation: "",
@@ -39,8 +40,26 @@ const Propiedades = () => {
     id: uuid(),
   });
 
-  const { propiedad, categoria, localitation, cama, baño, pie, foto, id } =
-    values;
+  const {
+    valor,
+    propiedad,
+    opcion,
+    tipo,
+    categoria,
+    localitation,
+    cama,
+    baño,
+    pie,
+    parqueadero,
+    piscina,
+    seguridad,
+    libreria,
+    medicina,
+    Kingsize,
+    juegos,
+    foto,
+    id,
+  } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,19 +105,49 @@ const Propiedades = () => {
   };
   return (
     <div className="container-fluid form">
-     
-      <Link to="/listPropiedad">PROPERTY</Link> 
+      <Link to="/listPropiedad">PROPERTY</Link>
       <h1>Property</h1>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Propiedad</Form.Label>
+
           <Form.Control
             type="text"
             name="propiedad"
             required
             placeholder="Nombre de la Propiedad"
             value={propiedad}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Valor</Form.Label>
+
+          <Form.Control
+            type="text"
+            name="valor"
+            required
+            placeholder="Valor de la propiedad"
+            value={valor}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Opcione</Form.Label>
+
+          <Form.Control
+            type="text"
+            name="opcion"
+            required
+            placeholder="Opcion de la Propiedad"
+            value={opcion}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Tipo de Casa</Form.Label>
+
+          <Form.Control
+            type="text"
+            name="tipo"
+            required
+            placeholder="Tipo de Propiedad "
+            value={tipo}
             onChange={handleInputChange}
           />
           <Form.Label>Categoría</Form.Label>
@@ -157,6 +206,94 @@ const Propiedades = () => {
               required
               placeholder="pie"
               value={pie}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+
+          <div>
+            <Form.Label>Parking lot</Form.Label>
+            <Form.Control
+              type="text"
+              name="parqueadero"
+              required
+              placeholder="parqueadero"
+              value={parqueadero}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+          <div>
+            <Form.Label>swimming pool</Form.Label>
+            <Form.Control
+              type="text"
+              name="piscina"
+              required
+              placeholder="piscina"
+              value={piscina}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+
+
+
+          <div>
+            <Form.Label> Seguridad Privada</Form.Label>
+            <Form.Control
+              type="text"
+              name="seguridad"
+              required
+              placeholder="seguridad"
+              value={seguridad}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+
+
+          <div>
+            <Form.Label>Area de Libreria</Form.Label>
+            <Form.Control
+              type="text"
+              name="libreria"
+              required
+              placeholder="Area de Libreia"
+              value={libreria}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+
+
+          <div>
+            <Form.Label>Area de Medicina</Form.Label>
+            <Form.Control
+              type="text"
+              name="medicina"
+              required
+              placeholder="Area de Medicina"
+              value={medicina}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+
+
+          <div>
+            <Form.Label>Camas Kingsize</Form.Label>
+            <Form.Control
+              type="text"
+              name="Kingsize"
+              required
+              placeholder="Camas Kingsize"
+              value={Kingsize}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
+
+          <div>
+            <Form.Label> Zona de juegos para niños</Form.Label>
+            <Form.Control
+              type="text"
+              name="juegos"
+              required
+              placeholder="juegos"
+              value={juegos}
               onChange={handleInputChange}
             />{" "}
           </div>
