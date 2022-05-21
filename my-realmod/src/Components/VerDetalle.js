@@ -1,13 +1,12 @@
 import React from "react";
-import { useState,useEffect } from "react";
-
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "../Hooks/useForm";
 import { Link } from "react-router-dom";
 import ReactImageMagnify from "react-image-magnify";
 import { Button, Card, Modal } from "react-bootstrap";
 import { verAsync } from "../redux/actions/actionAcciones";
-import "../style/detalle.css"
+import "../style/detalle.css";
 const VerDetalle = ({ modale, getModal }) => {
   const dispatch = useDispatch();
   const [show, getShow] = useState(true);
@@ -34,7 +33,7 @@ const VerDetalle = ({ modale, getModal }) => {
     seguridad: modale.seguridad,
     libreria: modale.libreria,
     medicina: modale.medicina,
-    kingsize: modale.kingsize,
+    Kingsize: modale.Kingsize,
     juegos: modale.juegos,
     descripcion: modale.descripcion,
   });
@@ -57,7 +56,7 @@ const VerDetalle = ({ modale, getModal }) => {
     seguridad,
     libreria,
     medicina,
-    kingsize,
+    Kingsize,
     juegos,
   } = values;
 
@@ -69,9 +68,6 @@ const VerDetalle = ({ modale, getModal }) => {
     console.log(values);
     handleClose();
   };
-
-
-
 
   const [state, setState] = useState({
     longitude: 0,
@@ -117,7 +113,7 @@ const VerDetalle = ({ modale, getModal }) => {
                 },
               }}
             />
-            <Card.Title  background-color="primary">Categoria:{categoria} </Card.Title>
+            <Card.Title background-color="primary">{categoria} </Card.Title>
             <Card.Title>{propiedad}</Card.Title>
             <Card.Title>
               <img
@@ -143,28 +139,23 @@ const VerDetalle = ({ modale, getModal }) => {
                 src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png"
                 alt="localitation"
                 width="59"
-             
               />
               {localitation}{" "}
-                <div>
-      <h1>Geolocation</h1>
-      <p>Latitude: {state.latitude}</p>
-      <p>longitude: {state.longitude}</p>
+              <div>
+                <h6>Geolocation</h6>
+                <p>Latitude: {state.latitude}</p>
+                <p>longitude: {state.longitude}</p>
 
-      <Link
-        to={{
-          pathname: "/map",
-          // state: {
-          //   hello: 'world'
-          // }
-          state,
-        }}
-      >
-        See marker
-      </Link>
-    </div>
-                
-              
+                <Link
+                  to={{
+                    pathname: "/map",
+
+                    state,
+                  }}
+                >
+                  See marker
+                </Link>
+              </div>
             </Card.Text>
             <h1> Caracteristicas</h1>
             <div>
@@ -182,14 +173,20 @@ const VerDetalle = ({ modale, getModal }) => {
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png" alt="baño" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png"
+                  alt="baño"
+                />
                 {baño}
               </Card.Text>
             </div>
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png"   alt='pie cuadrado'/>
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png"
+                  alt="pie cuadrado"
+                />
                 {pie}
               </Card.Text>
             </div>
@@ -265,7 +262,7 @@ const VerDetalle = ({ modale, getModal }) => {
                   width="59"
                   alt="camas Kingsize"
                 />
-                {kingsize}
+                {Kingsize}
               </Card.Text>
             </div>
             <div>
@@ -283,13 +280,13 @@ const VerDetalle = ({ modale, getModal }) => {
             <div>
               <Card.Text> {descripcion}</Card.Text>
             </div>
-            <Button
+           {/*  <Button
               variant="secondary"
               className="btnCrud"
               onClick={() => handleClose}
             >
               Close
-            </Button>
+            </Button> */}
             <Button
               type="submit"
               variant="primary"
@@ -298,6 +295,8 @@ const VerDetalle = ({ modale, getModal }) => {
             >
               Guardar
             </Button>
+            <Button onClick={() => propiedad}>Add to Cart</Button>
+            <Button>En el carrito</Button>
           </Modal.Body>
         </Modal>
       </>

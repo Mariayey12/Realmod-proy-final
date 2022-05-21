@@ -35,9 +35,10 @@ label{
 }
 
 .btnLogin{
-    width: 50%;
-    padding: 4%;
-    border-radius: 5px;
-    background-color: rgb(105, 105, 105); 
-    color:white;
+    width: 25%;
+    padding: 3%;
+    height: 10%;
+    background-color: #00C184;
+    border-radius: 15px;
+    color:#FFFF;
 }

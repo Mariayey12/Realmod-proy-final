@@ -28,12 +28,12 @@ const NavBars = () => {
             <li className="item_nav">
               <Link to="/">About</Link>
             </li>
-            <li className="item_nav">
+            {/* <li className="item_nav">
               <Link to="/addPropiedad">Property</Link>
-            </li>
-            <li className="item_nav">
+            </li> */}
+           {/*  <li className="item_nav">
               <Link to="/listPropiedad">Ver</Link>
-            </li>
+            </li> */}
            {/*  <li className="item_nav">
               <Link to="/verPropiedad">Ver</Link>
             </li> */}
@@ -64,8 +64,8 @@ const NavBars = () => {
               <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652938146/product-realmod/utrauersmkgwwuirt5q5.png" ></img>
             </li>
             <li className="item_nav">
-              <Link to="/"> </Link>
-              <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652937849/product-realmod/bovqzsxqkvoed856y1hf.png" ></img>
+              <Link to="/addPropiedad"><img src="https://res.cloudinary.com/academiageek1/image/upload/v1652937849/product-realmod/bovqzsxqkvoed856y1hf.png" ></img></Link>
+              
             </li>
 
             <li className="item_nav" onClick={logout}>

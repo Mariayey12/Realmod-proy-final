@@ -80,6 +80,10 @@ const Home = () => {
         <div className="ATRE">Featured Listings</div>
       </div>
 
+
+
+
+
       <center>
         <img
           className="banner"
@@ -95,6 +99,20 @@ const Home = () => {
           src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
           alt="logo"
         />
+ <div className="divCards">
+        {acciones.map((f) => (
+          <Card key={f.id}>
+            <Card.Img variant="top" src={f.foto} />
+            <Card.Body>
+
+            <div>
+                <Card.Title>{f.propiedad}</Card.Title>
+              </div>
+
+    </Card.Body>
+          </Card>
+        ))}
+      </div>
       </div>
       <div className="ATRE">Our Featured Properties</div>
 
@@ -135,27 +153,27 @@ const Home = () => {
               <div>
                 <Card.Text>
                   {" "}
-                  <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                  <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png"  alt="Pie cuadrado"/>
                   {f.pie}
                 </Card.Text>
               </div>
 
               <Button
-                className="editar"
+                 
                 variant="success"
                 onClick={() => editar(f.id)}
               >
                 Editar
               </Button>
               <Button
-                className="editar"
+             
                 variant="success"
                 onClick={() => ver(f.id)}
               >
                 VerDetalle
               </Button>
               <Button
-                className="editar"
+               
                 variant="success"
                 onClick={() => handleEliminar(f.id)}
               >

@@ -8,7 +8,7 @@ import { FileUp } from "../helpers/FileUp";
 import Swal from "sweetalert2";
 import { useForm } from "../Hooks/useForm";
 import { Link } from "react-router-dom";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 const SignupSchema = Yup.object().shape({
   agente: Yup.string()
@@ -106,7 +106,7 @@ const Propiedades = () => {
   };
   return (
     <div className="container-fluid form">
-      <Link to="/listPropiedad">PROPERTY</Link>
+      
       <h1>Property</h1>
 
       <Form onSubmit={handleSubmit}>
@@ -315,10 +315,10 @@ const Propiedades = () => {
             onChange={handleFileChange}
           />
         </Form.Group>
-
-        <button type="submit" className="btnLogin">
-          Propiedad
-        </button>
+        <Link to="/listPropiedad">Ver</Link>
+        <Button type="submit" className="btnLogin">
+          Add
+        </Button>
       </Form>
     </div>
   );
