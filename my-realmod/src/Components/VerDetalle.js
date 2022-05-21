@@ -2,10 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "../Hooks/useForm";
-import Swal from "sweetalert2";
+//import Swal from "sweetalert2";
+import ReactImageMagnify from "react-image-magnify";
 import { Button, Card, Modal } from "react-bootstrap";
 import { verAsync } from "../redux/actions/actionAcciones";
-
+import "../style/detalle.css"
 const VerDetalle = ({ modale, getModal }) => {
   const dispatch = useDispatch();
   const [show, getShow] = useState(true);
@@ -33,14 +34,15 @@ const VerDetalle = ({ modale, getModal }) => {
     libreria: modale.libreria,
     medicina: modale.medicina,
     kingsize: modale.kingsize,
-    juegos: modale.juegos
-
+    juegos: modale.juegos,
+    descripcion: modale.descripcion,
   });
 
   const {
     id,
     foto,
     propiedad,
+    descripcion,
     valor,
     opcion,
     tipo,
@@ -55,8 +57,7 @@ const VerDetalle = ({ modale, getModal }) => {
     libreria,
     medicina,
     kingsize,
-    juegos
-
+    juegos,
   } = values;
 
   const handleSubmit = (e) => {
@@ -75,96 +76,167 @@ const VerDetalle = ({ modale, getModal }) => {
           <Modal.Header closeButton>
             <Modal.Title>Our Featured Properties</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Card.Img variant="top" src={foto} />
-
-            <Card.Title>{categoria} </Card.Title>
+          <Modal.Body className="modalt">
+            <ReactImageMagnify
+              {...{
+                smallImage: {
+                  alt: "Wristwatch by Ted Baker London",
+                  isFluidWidth: true,
+                  src: foto,
+                },
+                largeImage: {
+                  width: 1200,
+                  height: 1800,
+                },
+              }}
+            />
+            <Card.Title  background-color="primary">Categoria:{categoria} </Card.Title>
             <Card.Title>{propiedad}</Card.Title>
-
-            <Card.Title>{valor}</Card.Title>
-            <Card.Title>{opcion}</Card.Title>
-            <Card.Title>{tipo}</Card.Title>
-
+            <Card.Title>
+              <img
+                src="https://res.cloudinary.com/academiageek1/image/upload/v1653077739/product-realmod/cv8yzmocblauxiyclyz3.png"
+                width="35"
+                alt="valor del inmueble"
+              />
+              {valor}
+            </Card.Title>
+            <Card.Title>{opcion}</Card.Title>{" "}
+            <Card.Title>
+              {" "}
+              <img
+                src="https://res.cloudinary.com/academiageek1/image/upload/v1653077726/product-realmod/sgzfxppmmfthkl5agnz6.png"
+                width="59"
+                text-aling="center"
+                alt="inteligente"
+              />
+              Casa {tipo}
+            </Card.Title>
             <Card.Text>
-              <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png" />
+              <img
+                src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png"
+                alt="localitation"
+                width="59"
+             
+              />
               {localitation}{" "}
             </Card.Text>
             <h1> Caracteristicas</h1>
-
             <div>
               <Card.Text>
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652920898/product-realmod/sldrdabp6nogpdvejht2.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1652920898/product-realmod/sldrdabp6nogpdvejht2.png"
+                  alt="cama"
+                  width="40"
+                  text-align="center"
+                  margin="auto"
+                />
                 {cama}
               </Card.Text>
             </div>
-
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png" />
+                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png" alt="baño" />
                 {baño}
               </Card.Text>
             </div>
-
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png"   alt='pie cuadrado'/>
                 {pie}
               </Card.Text>
             </div>
-
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653078190/product-realmod/xhb0qzrqj8hnoe2vk9xy.png"
+                  width="39"
+                  margin="auto"
+                  text-align="center"
+                  alt="parqueadero"
+                />
                 {parqueadero}
               </Card.Text>
             </div>
-
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653077730/product-realmod/dctorkkqldy1fkpwsuwu.png"
+                  width="59"
+                  alt="piscina"
+                />
                 {piscina}
               </Card.Text>
             </div>
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653081249/product-realmod/gkvku83m1y40qfadufvj.png"
+                  width="39"
+                  alt="area de seguridad"
+                />
                 {seguridad}
               </Card.Text>
             </div>
             <div>
-              <Card.Text>
+              <p>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
-                {libreria}
-              </Card.Text>
+                <b>
+                  {" "}
+                  <Card.Text>
+                    {" "}
+                    <img
+                      src="https://res.cloudinary.com/academiageek1/image/upload/v1653078238/product-realmod/b0cgibqxkhr9kimxguea.png"
+                      width="49"
+                      alt="area de libreria"
+                      margin-right="40"
+                    />
+                    {libreria}
+                  </Card.Text>
+                </b>{" "}
+              </p>
             </div>
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653077702/product-realmod/sjzm4aftr4aqsgilxpio.png"
+                  width="59"
+                  alt="area de medicina"
+                />
                 {medicina}
               </Card.Text>
             </div>
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653078242/product-realmod/nlkf3cqgx4u03zovlceo.png "
+                  width="59"
+                  alt="camas Kingsize"
+                />
                 {kingsize}
               </Card.Text>
             </div>
             <div>
               <Card.Text>
                 {" "}
-                <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png" />
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653078187/product-realmod/jgfdb6baguxwhhynxswf.png"
+                  width="39"
+                  alt="zona de juegos para niño"
+                />
                 {juegos}
               </Card.Text>
             </div>
-
+            <h1>Descripcion</h1>
+            <div>
+              <Card.Text> {descripcion}</Card.Text>
+            </div>
             <Button
               variant="secondary"
               className="btnCrud"

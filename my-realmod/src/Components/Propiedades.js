@@ -43,6 +43,7 @@ const Propiedades = () => {
   const {
     valor,
     propiedad,
+    descripcion,
     opcion,
     tipo,
     categoria,
@@ -113,6 +114,8 @@ const Propiedades = () => {
           <Form.Label>Propiedad</Form.Label>
 
           <Form.Control
+
+
             type="text"
             name="propiedad"
             required
@@ -120,6 +123,18 @@ const Propiedades = () => {
             value={propiedad}
             onChange={handleInputChange}
           />
+              <Form.Label>Descripcion</Form.Label>
+
+<Form.Control
+
+
+  type="text"
+  name="descripcion"
+  required
+  placeholder="Decripcion de la Propiedad"
+  value={descripcion}
+  onChange={handleInputChange}
+/>
           <Form.Label>Valor</Form.Label>
 
           <Form.Control
@@ -233,10 +248,8 @@ const Propiedades = () => {
             />{" "}
           </div>
 
-
-
           <div>
-            <Form.Label> Seguridad Privada</Form.Label>
+            <Form.Label>Private security</Form.Label>
             <Form.Control
               type="text"
               name="seguridad"
@@ -247,9 +260,8 @@ const Propiedades = () => {
             />{" "}
           </div>
 
-
           <div>
-            <Form.Label>Area de Libreria</Form.Label>
+            <Form.Label>Library Area</Form.Label>
             <Form.Control
               type="text"
               name="libreria"
@@ -260,9 +272,8 @@ const Propiedades = () => {
             />{" "}
           </div>
 
-
           <div>
-            <Form.Label>Area de Medicina</Form.Label>
+            <Form.Label>Medicine Area</Form.Label>
             <Form.Control
               type="text"
               name="medicina"
@@ -273,9 +284,8 @@ const Propiedades = () => {
             />{" "}
           </div>
 
-
           <div>
-            <Form.Label>Camas Kingsize</Form.Label>
+            <Form.Label>Kingsize beds</Form.Label>
             <Form.Control
               type="text"
               name="Kingsize"
@@ -287,7 +297,7 @@ const Propiedades = () => {
           </div>
 
           <div>
-            <Form.Label> Zona de juegos para niños</Form.Label>
+            <Form.Label>Children's play area</Form.Label>
             <Form.Control
               type="text"
               name="juegos"

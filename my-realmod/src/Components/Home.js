@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch,  useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 import {  useNavigate } from 'react-router-dom';
 import { logoutAsync } from '../redux/actions/actionLogin'
 import { useEffect } from 'react'
@@ -80,7 +81,28 @@ const Home = () => {
     })
   }
 
+  const [state, setState] = useState({
+    longitude: 0,
+    latitude: 0,
+  });
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        // console.log(position);
+        setState({
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        });
+      },
+      function (error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+      },
+      {
+        enableHighAccuracy: true,
+      }
+    );
+  }, []);
 
   return (
     
@@ -119,6 +141,29 @@ const Home = () => {
                 </div>
                 <div>
                 <Card.Text><img  src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png"/>{f.localitation}  </Card.Text>
+
+
+
+
+
+
+                <div>
+      <h1>Geolocation</h1>
+      <p>Latitude: {state.latitude}</p>
+      <p>longitude: {state.longitude}</p>
+
+      <Link
+        to={{
+          pathname: "/map",
+          // state: {
+          //   hello: 'world'
+          // }
+          state,
+        }}
+      >
+        See marker
+      </Link>
+    </div>
                   </div>
 
                   <div>
@@ -138,9 +183,10 @@ const Home = () => {
                   {f.pie}
                 </Card.Text>
                 </div>
-                <Button variant="success" onClick={() => editar(f.id)}>Editar</Button>
-                <Button variant="success" onClick={() => ver(f.id)}>VerDetalle</Button>
-                <Button variant="success" onClick={() => handleEliminar(f.id)}>Eliminar</Button>
+
+                <Button  className="editar" variant="success" onClick={() => editar(f.id)}>Editar</Button>
+                <Button  className="editar" variant="success" onClick={() => ver(f.id)}>VerDetalle</Button>
+                <Button className="editar" variant="success" onClick={() => handleEliminar(f.id)}>Eliminar</Button>
 
               </Card.Body>
             </Card>
