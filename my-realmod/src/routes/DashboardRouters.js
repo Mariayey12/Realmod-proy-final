@@ -4,7 +4,7 @@ import Propiedades  from '../Components/Propiedades'
 import Home from '../Components/Home'
 import NavBars from '../Components/NavBars'
 import MapView from "../Components/MapView";
-
+import "../style/App.css"
 
 
 
@@ -16,15 +16,9 @@ const DashboardRouters = () => {
         <Routes>
         <Route path="/" element={<Home />}/>
           <Route path="/addPropiedad" element={<Propiedades/>}/>
-          <Route path="/map">
-          <MapView />;
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
+          <Route path="/map"   element={<MapView />}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
-    
       </>
     </div>
   )

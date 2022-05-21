@@ -1,8 +1,9 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+
 import { useDispatch } from "react-redux";
 import { useForm } from "../Hooks/useForm";
-//import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 import ReactImageMagnify from "react-image-magnify";
 import { Button, Card, Modal } from "react-bootstrap";
 import { verAsync } from "../redux/actions/actionAcciones";
@@ -69,6 +70,32 @@ const VerDetalle = ({ modale, getModal }) => {
     handleClose();
   };
 
+
+
+
+  const [state, setState] = useState({
+    longitude: 0,
+    latitude: 0,
+  });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        // console.log(position);
+        setState({
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        });
+      },
+      function (error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+      },
+      {
+        enableHighAccuracy: true,
+      }
+    );
+  }, []);
+
   return (
     <div>
       <>
@@ -119,6 +146,25 @@ const VerDetalle = ({ modale, getModal }) => {
              
               />
               {localitation}{" "}
+                <div>
+      <h1>Geolocation</h1>
+      <p>Latitude: {state.latitude}</p>
+      <p>longitude: {state.longitude}</p>
+
+      <Link
+        to={{
+          pathname: "/map",
+          // state: {
+          //   hello: 'world'
+          // }
+          state,
+        }}
+      >
+        See marker
+      </Link>
+    </div>
+                
+              
             </Card.Text>
             <h1> Caracteristicas</h1>
             <div>
