@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import logo from "../image/Logo.png";
 import { logoutAsync } from "../redux/actions/actionLogin";
+import { Form, NavDropdown} from "react-bootstrap";
 
 const NavBars = () => {
   //-----------------logou-------------------------------//
@@ -26,17 +27,21 @@ const NavBars = () => {
               <Link to="/home">Home</Link>
             </li>
             <li className="item_nav">
-              <Link to="/">About</Link>
+              <Link to="/about">About</Link>
             </li>
-            {/* <li className="item_nav">
-              <Link to="/addPropiedad">Property</Link>
-            </li> */}
-           {/*  <li className="item_nav">
-              <Link to="/listPropiedad">Ver</Link>
-            </li> */}
-           {/*  <li className="item_nav">
-              <Link to="/verPropiedad">Ver</Link>
-            </li> */}
+
+            <li className="item_nav">
+              <Link to="/verPropiedad"></Link>
+
+          <NavDropdown title="Propetier" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Studio Home</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Apartments</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Villa</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Restaurant</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Comercial</NavDropdown.Item>
+        </NavDropdown>
+            </li> 
             <li className="item_nav">
               <Link to="/">Pages</Link>
             </li>
@@ -44,8 +49,11 @@ const NavBars = () => {
               <Link to="/">Blog</Link>
             </li>
             <li className="item_nav">
-              <Link to="/">Contac</Link>
+              <Link to="/contactano">Contac</Link>
             </li>
+            <li className="item_nav">
+              <Link to="/addFeactured">AddF</Link>
+            </li> 
             <li className="item_nav">
               <Link to="/"> </Link>
               <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652937567/product-realmod/b0tzfhg9vd1t9dpvvmga.png" ></img>

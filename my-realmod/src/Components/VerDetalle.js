@@ -176,6 +176,9 @@ const VerDetalle = ({ modale, getModal }) => {
                 <img
                   src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png"
                   alt="baño"
+                  width="40"
+                  text-align="right"
+                  margin="auto"
                 />
                 {baño}
               </Card.Text>
@@ -280,7 +283,7 @@ const VerDetalle = ({ modale, getModal }) => {
             <div>
               <Card.Text> {descripcion}</Card.Text>
             </div>
-           {/*  <Button
+            {/*  <Button
               variant="secondary"
               className="btnCrud"
               onClick={() => handleClose}
@@ -295,8 +298,21 @@ const VerDetalle = ({ modale, getModal }) => {
             >
               Guardar
             </Button>
-            <Button onClick={() => propiedad}>Add to Cart</Button>
-            <Button>En el carrito</Button>
+            <Button onClick={() => propiedad}>
+              {" "}
+              <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652938146/product-realmod/utrauersmkgwwuirt5q5.png"></img>
+              Add to Cart</Button>
+              <li className="item_nav">
+                <Link to="/"> </Link>
+              </li>
+            
+            <Button><img src="https://res.cloudinary.com/academiageek1/image/upload/v1652937731/product-realmod/p9uelt0rq6jgq7fxbfcp.png"></img>
+              Add to Favorite{" "} </Button>
+              
+           
+            <li className="item_nav">
+              <Link to="/"> </Link>
+            </li>
           </Modal.Body>
         </Modal>
       </>

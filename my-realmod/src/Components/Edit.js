@@ -5,29 +5,25 @@ import { useForm } from "../Hooks/useForm";
 import { FileUp } from "../helpers/FileUp";
 import Swal from "sweetalert2";
 import { Button, Form, Modal } from "react-bootstrap";
-import { editAsync } from "../redux/actions/actionAcciones";
+import { editAsync } from "../redux/actions/actionFeactures";
 
-const Editar = ({ modal, setModal }) => {
+const Edit = ({ modal1, setModal1 }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
     setShow(false);
-    setModal(false);
+    setModal1(false);
   };
 
   const [values, handleInputChange] = useForm({
-    propiedad: modal.propiedad,
-    id: modal.id,
-    categoria: modal.categoria,
-    localitation: modal.localitation,
-    cama: modal.cama,
-    baño: modal.baño,
-    pie: modal.pie,
+    feactured: modal1.feactured,
+    id: modal1.id,
+   
 
   });
 
-  const {  id, propiedad ,categoria,localitation,cama,baño,pie } = values;
+  const {  id, feactured } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,78 +76,19 @@ const Editar = ({ modal, setModal }) => {
       <>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Editar Propiedad</Modal.Title>
+            <Modal.Title>Editar feactured</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={() => handleSubmit()}>
-              <Form.Label>Propiedad</Form.Label>
+              <Form.Label>Feactured</Form.Label>
               <Form.Control
                 type="text"
-                name="propiedad"
+                name="fecatured"
                 required
-                placeholder="Nombre de la Propiedad"
-                value={propiedad}
+                placeholder="Nombre de la feactured"
+                value={feactured}
                 onChange={handleInputChange}
               />
-
-              <Form.Label>Categoria</Form.Label>
-              <Form.Select
-                aria-label="Default select example"
-                name="categoria"
-                onChange={handleInputChange}
-                required
-              >
-                <option>Categoria</option>
-                <option value="studio">Studio Home</option>
-                <option value="apartamento">Apartments</option>
-                <option value="villa">Villa</option>
-                <option value="restaurant">Restaurant</option>
-                <option value="comercial">Comercial</option>
-              </Form.Select>
-              <div>
-            <Form.Label>Localitation</Form.Label>
-            <Form.Control
-              type="text"
-              name="localitation"
-              required
-              placeholder="Localitation"
-              value={localitation}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Beds</Form.Label>
-            <Form.Control
-              type="text"
-              name="cama"
-              required
-              placeholder="Cama"
-              value={cama}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Baths</Form.Label>
-            <Form.Control
-              type="text"
-              name="baño"
-              required
-              placeholder="Baño"
-              value={baño}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Sqft</Form.Label>
-            <Form.Control
-              type="text"
-              name="pie"
-              required
-              placeholder="pie"
-              value={pie}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
               <Form.Label>Imagen</Form.Label>
               <Form.Control
                 type="file"
@@ -183,4 +120,4 @@ const Editar = ({ modal, setModal }) => {
   );
 };
 
-export default Editar;
+export default Edit;

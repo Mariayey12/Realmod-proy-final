@@ -42,3 +42,8 @@ label{
     border-radius: 15px;
     color:#FFFF;
 }
+.divCards1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}

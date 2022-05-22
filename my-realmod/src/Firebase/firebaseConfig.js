@@ -24,13 +24,13 @@ const analytics = getAnalytics(app);
 const google = new GoogleAuthProvider();
 const facebook = new GoogleAuthProvider();
 const baseDato = getFirestore();
-
+const baseDato1 = getFirestore();
 export {
     app,
     google,
     facebook,
     baseDato,
-  
+    baseDato1
   }
 
 

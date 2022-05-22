@@ -7,6 +7,15 @@ export const typesAcciones = {
 }
 
 
+export const typesFeactures = {
+    addFeactured:'addFeactured',
+    listFeactured:'listFeactured',
+    editarFeactured:'editarFeactured',
+    verFeactured:'verFeactured',
+    deleteFeactured:'deleteFeactured',
+}
+
+
 export const typesLogin = {
     login: 'login',
     logout: 'logout',

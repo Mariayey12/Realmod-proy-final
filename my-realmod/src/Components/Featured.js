@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
 import "../style/Propiedad.css";
-import { addPropiedadAsync } from "../redux/actions/actionAcciones";
+import { addFeacturedAsync } from "../redux/actions/actionFeactures";
 import { FileUp } from "../helpers/FileUp";
 import Swal from "sweetalert2";
 import { useForm } from "../Hooks/useForm";
@@ -11,27 +11,42 @@ import { Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 
 const SignupSchema = Yup.object().shape({
-  
-  feacture: Yup.string()
+  descripcion: Yup.string()
+    .min(
+      2,
+      "Nombre de la  descripcion muy corto, ingresa una descripcion mas largo"
+    )
+    .max(
+      50,
+      "El Nombre de la descripcion excede el maximo de caracteres permitidos"
+    )
+    .required("El campo  es requerido"),
+  categoria: Yup.string()
+    .min(3, "Nombre de Categoria muy corto, ingresa una categoria mas larga")
+    .max(20, "La categoria excede el maximo de caracteres permitidos")
+    .required("El campo Categoria es requerido"),
+  feactured: Yup.string()
     .min(10, "es muy corta, ingresa una palabra mas larga")
-    .max(400, "La frase excede el maximo de caracteres permitidos")
-    .required("El campo es requerido"),
+    .max(400, "La palabra excede el maximo de caracteres permitidos")
+    .required("El campo  es requerido"),
 });
 
-const Feacturades = () => {
+const Feactures = () => {
   const dispatch = useDispatch();
 
   const [values, handleInputChange, reset] = useForm({
-    feacture: "",
+    descripcion: "",
+    feactured: "",
+
     foto: "",
     id: uuid(),
   });
 
-  const { feacture, foto, id } = values;
+  const { feactured, descripcion, foto, id } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addPropiedadAsync(values));
+    dispatch(addFeacturedAsync(values));
     reset();
   };
 
@@ -73,18 +88,28 @@ const Feacturades = () => {
   };
   return (
     <div className="container-fluid form">
-      <h1>Property</h1>
-
+      <h1>Add Feactured</h1>
+      
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Feacture</Form.Label>
+          <Form.Label>Feactured</Form.Label>
 
           <Form.Control
             type="text"
-            name="feacture"
+            name="feactured"
             required
-            placeholder="Nombre de la Feacture"
-            value={feacture}
+            placeholder="Nombre de la Feactured"
+            value={feactured}
+            onChange={handleInputChange}
+          />
+          <Form.Label>Descripcion</Form.Label>
+
+          <Form.Control
+            type="text"
+            name="descripcion"
+            required
+            placeholder="Decripcion de la Propiedad"
+            value={descripcion}
             onChange={handleInputChange}
           />
 
@@ -96,13 +121,16 @@ const Feacturades = () => {
             onChange={handleFileChange}
           />
         </Form.Group>
-        <Link to="/listPropiedad">Ver</Link>
+        
         <Button type="submit" className="btnLogin">
           Add
         </Button>
+        <li className="item_nav">
+              <Link to="/listFeactured">Listings</Link>
+            </li>
       </Form>
     </div>
   );
 };
 
-export default Feacturades;
+export default Feactures;
