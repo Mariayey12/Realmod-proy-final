@@ -49,7 +49,7 @@ const NavBars = () => {
               <Link to="/">Blog</Link>
             </li>
             <li className="item_nav">
-              <Link to="/contactano">Contac</Link>
+              <Link to="/contacto">Contac</Link>
             </li>
             <li className="item_nav">
               <Link to="/addFeactured">AddF</Link>

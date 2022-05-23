@@ -4,7 +4,7 @@ const initialState = {
     contactos: []
 }
 
-export const feacturesReducers = (state = initialState, action) => {
+export const contactosReducers = (state = initialState, action) => {
     switch (action.type) {
         case typesContactos.addContacto:
             return {

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 
 const SignupSchema = Yup.object().shape({
-  agente: Yup.string()
+  descripcion: Yup.string()
     .min(2, "Nombre de Agente muy corto, ingresa un Agente mas largo")
     .max(50, "El Nombre de Agente excede el maximo de caracteres permitidos")
     .required("El campo Creador es requerido"),

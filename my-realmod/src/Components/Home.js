@@ -156,12 +156,13 @@ const Home = () => {
             <Card.Img variant="top" src={fi.foto} />
             <Card.Body></Card.Body>
 
-            <Button variant="success" onClick={() => editar1(fi.id)}>
+           
+             {/*  <Button variant="success" onClick={() => editar1(fi.id)}>
                 Edit
               </Button>
               <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
                 Eliminar
-              </Button>
+              </Button> */}
           </Card>
         ))}
       </div>

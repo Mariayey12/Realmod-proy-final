@@ -4,7 +4,7 @@ const initialState = {
     agentes: []
 }
 
-export const AgentesReducers = (state = initialState, action) => {
+export const agentesReducers = (state = initialState, action) => {
     switch (action.type) {
         case typesAgentes.addAgente:
             return {

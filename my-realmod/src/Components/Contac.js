@@ -1,7 +1,56 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import uuid from "react-uuid";
+import { addContactoAsync } from "../redux/actions/actionContact";
+import Swal from "sweetalert2";
+import { useForm } from "../Hooks/useForm";
+import { Button, Form } from "react-bootstrap";
 
+
+
+const SignupSchema = Yup.object().shape({
+nombre: Yup.string()
+    .min(2, "Nombre de Agente muy corto, ingresa un Agente mas largo")
+    .max(50, "El Nombre  excede el maximo de caracteres permitidos")
+    .required("El campo Creador es requerido"),
+  email: Yup.string()
+    .min(3, "email  muy corto, ingresa otro email mas larga")
+    .max(20, "el email excede el maximo de caracteres permitidos")
+    .required("El campo Categoria es requerido"),
+    descripcion: Yup.string()
+    .min(10, "es muy corta, ingresa una palabra mas larga")
+    .max(400, "La palabra excede el maximo de caracteres permitidos")
+    .required("El campo es requerido"),
+});
 const Contact = () => {
+
+  const dispatch = useDispatch();
+
+  const [values, handleInputChange, reset] = useForm({
+    nombre: "",
+    descripcion: "",
+    email: "",
+   telefono:"",
+    id: uuid(),
+  });
+
+  const {
+    nombre,
+    email,
+    descripcion,
+    telefono,
+    id,
+  } = values;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addContactoAsync(values));
+    reset();
+  };
+
+  
   return (
     <div className="Contianer-contactUs section" id="contactUs">
     <div className="ilustration-container">
@@ -9,34 +58,58 @@ const Contact = () => {
     </div>
     <div className="form-container">
       <h2 className="title form-title">Contacta con Nosotros...</h2>
-      <form className="form-contactUs">
-        <label htmlFor="inputNombre">
-          <input type="text" placeholder="nombre" id="inputNombre" />
-        </label>
-        <label htmlFor="inputEmail">
-          <input type="email" placeholder="Email" id="inputEmail" />
-        </label>
-        <label htmlFor="inputTel">
-          <input
-            type="number"
-            placeholder="Celular - Movil"
-            id="inputTel"
-          />
-        </label>
-        <label htmlFor="inputTel">
-          <textarea placeholder="¿Como podemos Ayudarte...?" />
-        </label>
-        <button type="button">Contactanos</button>
-        <button type="button">
-        <li className="item_nav">
-              <Link to="/login"> Ir a la App</Link>
-            </li>
-        
-        </button>
+      <Form onSubmit={handleSubmit} className="form-contactUs">
+        <Form.Group className="mb-3 " controlId="formBasicEmail"></Form.Group>
+        <Form.Label>Escribe tu Nombre</Form.Label>
+        <Form.Control
 
-      </form>
+
+type="text"
+name="nombre"
+required
+placeholder="Nombre de Contacto"
+value={nombre}
+onChange={handleInputChange}
+/>
+  
+<Form.Label>Escribe tu Email</Form.Label>
+
+<Form.Control
+type="text"
+name="email"
+required
+placeholder="Correo Electronico"
+value={email}
+onChange={handleInputChange}
+/>
+<Form.Label>Escribe tu telefono Movil</Form.Label>
+<Form.Control
+type="text"
+name="telefono"
+required
+placeholder="telefono"
+value={telefono}
+onChange={handleInputChange}
+/>
+<Form.Label>Descripcion</Form.Label>
+<h2 className="title form-title">Como te podemos ayudar ...</h2>
+<Form.Control
+
+
+type="text"
+name="descripcion"
+required
+placeholder="Decripcion de la Propiedad"
+value={descripcion}
+onChange={handleInputChange}
+/>
+<Link to="/contacto">Ver</Link>
+        <Button type="submit" className="btnLogin">
+          Add
+        </Button>
+</Form>
     </div>
-  </div>
+    </div>
 
   )
 }
