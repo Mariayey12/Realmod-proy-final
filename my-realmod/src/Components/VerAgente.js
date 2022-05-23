@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -9,7 +7,7 @@ import ReactImageMagnify from "react-image-magnify";
 import { Button, Card, Modal } from "react-bootstrap";
 import { verAsync } from "../redux/actions/actionAcciones";
 import "../style/detalle.css";
-const VerDetalle = ({ modale, getModal }) => {
+const VerAgente = ({ modale, getModal }) => {
   const dispatch = useDispatch();
   const [show, getShow] = useState(true);
 
@@ -302,7 +300,6 @@ const VerDetalle = ({ modale, getModal }) => {
             </Button>
             <Button onClick={() => propiedad}>
               {" "}
-             
               <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652938146/product-realmod/utrauersmkgwwuirt5q5.png"></img>
               Add to Cart</Button>
               <li className="item_nav">
@@ -323,4 +320,4 @@ const VerDetalle = ({ modale, getModal }) => {
   );
 };
 
-export default VerDetalle;
+export default VerAgente;

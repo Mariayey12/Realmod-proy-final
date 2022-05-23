@@ -7,7 +7,7 @@ import NavBars from '../Components/NavBars'
 import "../style/App.css"
 import About from '../Components/About'
 import Contact from '../Components/Contac'
-
+import Agentes from '../Components/Agentes'
 import MapView from '../Components/MapView'
 
 
@@ -24,12 +24,7 @@ const DashboardRouters = () => {
           <Route path="/map" element={<MapView/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contactano" element={<Contact/>}/>
-
-       
-        
-   
-    
-    
+          <Route path="/agente" element={<Agentes/>}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
       </>

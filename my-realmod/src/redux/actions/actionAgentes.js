@@ -2,22 +2,22 @@ import {
     addDoc, collection, deleteDoc, doc, getDocs, query, updateDoc, where
 } from "firebase/firestore";
 import Swal from "sweetalert2";
-import { baseDato2 } from "../../Firebase/firebaseConfig";
-import { typesContactos } from "../types/types";
+import { baseDato3 } from "../../Firebase/firebaseConfig";
+import { typesAgentes } from "../types/types";
 
 
 
-//-------------agregarContacto---------------//
-export const addContactoAsync = (contacto) => {
-    console.log(contacto);
+//-------------agregarAgente---------------//
+export const addAgenteAsync = (agente) => {
+    console.log(agente);
     return (dispatch) => {
-        addDoc(collection(baseDato2, "ContactosBD"),contacto)
+        addDoc(collection(baseDato3, "AgentesBD"), agente)
             .then(resp => {
-                dispatch(addContactoSync(contacto))
+                dispatch(addAgenteSync(agente))
                 Swal.fire({
                     position:'center',
                     icon: 'success',
-                    title: 'Contacto Agregado Correctamente!',
+                    title: 'Agente Agregado Correctamente!',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -28,51 +28,51 @@ export const addContactoAsync = (contacto) => {
     }
 }
 
-export const addContactoSync = (contacto) => {
+export const addAgenteSync = (agente) => {
     return {
-        type: typesContactos.addContacto,
-        payload: contacto
+        type: typesAgentes.addAgente,
+        payload: agente
     }
 }
 
 
-//---------------listarContacto----------------//
+//---------------listarAgente----------------//
 export const listAsyn = () => {
     return async (dispatch) => {
-        const colleccionTraer = await getDocs(collection(baseDato2, "ContactosBD"))
-        const contacto = []
+        const colleccionTraer = await getDocs(collection(baseDato3, "AgentesBD"))
+        const agente = []
         colleccionTraer.forEach((doc) => {
-            contacto.push({
+            agente.push({
                 ...doc.data()
             })
         })
-        dispatch(listSync(contacto))
+        dispatch(listSync(agente))
     }
 }
 
-export const listSync = (contacto) => {
+export const listSync = (agente) => {
     return {
-        type: typesContactos.listContacto,
-        payload: contacto
+        type: typesAgentes.listAgente,
+        payload: agente
     }
 
 }
 
-//---------------------EditarContacto-----------//
-export const editAsync = (ids, contacto) => {
+//---------------------EditarAgente-----------//
+export const editAsync = (ids, agente) => {
     return async (dispatch) => {
-        const colleccionTraer = collection(baseDato2, "ContactosBD")
+        const colleccionTraer = collection(baseDato3, "AgentesBD")
         const q = query(colleccionTraer, where("id", "==", ids))
         const traerDatosQ = await getDocs(q) //traigame todo el objeto de firestore
         let id
         traerDatosQ.forEach(async (docu) => {
             id = docu.id
         })
-        const documenRef = doc(baseDato2, "ContactosBD", id)
+        const documenRef = doc(baseDato3, "AgentesBD", id)
 
-        await updateDoc(documenRef, contacto)
+        await updateDoc(documenRef, agente)
             .then(resp => {
-                dispatch(editSync(contacto))
+                dispatch(editSync(agente))
                 dispatch(listAsyn())
                 console.log(resp)
             })
@@ -80,29 +80,29 @@ export const editAsync = (ids, contacto) => {
     }
 }
 
-export const editSync = (contacto) => {
+export const editSync = (agente) => {
     return {
-        type: typesContactos.editarContacto,
-        payload: contacto
+        type: typesAgentes.editarAgente,
+        payload: agente
     }
 
 }
 
-//---------------------VerContacto-----------//
-export const verAsync = (ids, contacto) => {
+//---------------------VerAgente-----------//
+export const verAsync = (ids, agente) => {
     return async (dispatch) => {
-        const colleccionTraer = collection(baseDato2, "ContactosBD")
+        const colleccionTraer = collection(baseDato3, "AgentesBD")
         const q = query(colleccionTraer, where("id", "==", ids))
         const traerDatosQ = await getDocs(q) //traigame todo el objeto de firestore
         let id
         traerDatosQ.forEach(async (docu) => {
             id = docu.id
         })
-        const documenRef = doc(baseDato2, "ContactosBD", id)
+        const documenRef = doc(baseDato3, "AgentesBD", id)
 
-        await updateDoc(documenRef, contacto)
+        await updateDoc(documenRef, agente)
             .then(resp => {
-                dispatch(verSync(contacto))
+                dispatch(verSync(agente))
                 dispatch(listAsyn())
                 console.log(resp)
             })
@@ -110,21 +110,27 @@ export const verAsync = (ids, contacto) => {
     }
 }
 
-export const verSync = (contacto) => {
+export const verSync = (agente) => {
     return {
-        type: typesContactos.verContacto,
-        payload: contacto
+        type: typesAgentes.verAgente,
+        payload: agente
     }
 
 }
-//-------------------deleteContacto--------------------//
+
+
+
+
+
+
+//-------------------delete--------------------//
 export const deleteAsync = (id) => {
     return async (dispatch) => {
-        const colleccionTrae = collection(baseDato2, "ContactosBD")
+        const colleccionTrae = collection(baseDato3, "AgentesBD")
         const q = query(colleccionTrae, where("id", "==", id))
         const traerDatosQ = await getDocs(q)
         traerDatosQ.forEach((docum => {
-            deleteDoc(doc(baseDato2, "ContactosBD", docum.id))
+            deleteDoc(doc(baseDato3, "AgentesBD", docum.id))
         }))
         dispatch(deleteSync(id))
     }
@@ -133,7 +139,7 @@ export const deleteAsync = (id) => {
 export const deleteSync = (id) => {
     console.log(id);
     return {
-        type: typesContactos.deleteContacto,
+        type: typesAgentes.deleteAgente,
         payload: id
     }
 

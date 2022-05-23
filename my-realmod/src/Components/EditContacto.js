@@ -5,33 +5,41 @@ import { useForm } from "../Hooks/useForm";
 import { FileUp } from "../helpers/FileUp";
 import Swal from "sweetalert2";
 import { Button, Form, Modal } from "react-bootstrap";
-import { editAsync } from "../redux/actions/actionFeactures";
+import { editAsync } from "../redux/actions/actionAcciones";
 
-const Edit = ({ modal1, setModal1 }) => {
+const Edi = ({ modal, setModal }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
     setShow(false);
-    setModal1(false);
+    setModal(false);
   };
 
   const [values, handleInputChange] = useForm({
-    feactured: modal1.feactured,
-    descripcion: modal1.descripcion,
-    id: modal1.id,
+    propiedad: modal.propiedad,
+    id: modal.id,
+    categoria: modal.categoria,
+    localitation: modal.localitation,
+    cama: modal.cama,
+    baño: modal.baño,
+    pie: modal.pie,
+
   });
 
-  const {  id, feactured,descripcion } = values;
+  const {  id, propiedad ,categoria,localitation,cama,baño,pie } = values;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //  console.log(values)
     dispatch(editAsync(id, values));
+
     console.log(values);
     handleClose();
   };
 
   let timerInterval;
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     console.log(file);
@@ -72,19 +80,78 @@ const Edit = ({ modal1, setModal1 }) => {
       <>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Editar feactured</Modal.Title>
+            <Modal.Title>Editar Propiedad</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={() => handleSubmit()}>
-              <Form.Label>Feactured</Form.Label>
+              <Form.Label>Propiedad</Form.Label>
               <Form.Control
                 type="text"
-                name="fecatured"
+                name="propiedad"
                 required
-                placeholder="Nombre de la feactured"
-                value={feactured}
+                placeholder="Nombre de la Propiedad"
+                value={propiedad}
                 onChange={handleInputChange}
               />
+
+              <Form.Label>Categoria</Form.Label>
+              <Form.Select
+                aria-label="Default select example"
+                name="categoria"
+                onChange={handleInputChange}
+                required
+              >
+                <option>Categoria</option>
+                <option value="studio">Studio Home</option>
+                <option value="apartamento">Apartments</option>
+                <option value="villa">Villa</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="comercial">Comercial</option>
+              </Form.Select>
+              <div>
+            <Form.Label>Localitation</Form.Label>
+            <Form.Control
+              type="text"
+              name="localitation"
+              required
+              placeholder="Localitation"
+              value={localitation}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <Form.Label>Beds</Form.Label>
+            <Form.Control
+              type="text"
+              name="cama"
+              required
+              placeholder="Cama"
+              value={cama}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <Form.Label>Baths</Form.Label>
+            <Form.Control
+              type="text"
+              name="baño"
+              required
+              placeholder="Baño"
+              value={baño}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <Form.Label>Sqft</Form.Label>
+            <Form.Control
+              type="text"
+              name="pie"
+              required
+              placeholder="pie"
+              value={pie}
+              onChange={handleInputChange}
+            />{" "}
+          </div>
               <Form.Label>Imagen</Form.Label>
               <Form.Control
                 type="file"
@@ -92,6 +159,7 @@ const Edit = ({ modal1, setModal1 }) => {
                 required
                 onChange={handleFileChange}
               />
+
               <Button
                 variant="secondary"
                 className="btnCrud"
@@ -115,4 +183,4 @@ const Edit = ({ modal1, setModal1 }) => {
   );
 };
 
-export default Edit;
+export default Edi;

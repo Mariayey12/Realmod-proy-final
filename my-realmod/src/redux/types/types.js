@@ -14,6 +14,20 @@ export const typesFeactures = {
     verFeactured:'verFeactured',
     deleteFeactured:'deleteFeactured',
 }
+export const typesContactos = {
+    addContacto:'addContacto',
+    listContacto:'listContacto',
+    editarContacto:'editarContacto',
+    verContacto:'verContacto',
+    deleteContacto:'deleteContacto',
+}
+export const typesAgentes = {
+    addAgente:'addAgente',
+    listAgente:'listAgente',
+    editarAgente:'editarAgente',
+    verAgente:'verAgente',
+    deleteAgente:'deleteAgente',
+}
 
 
 export const typesLogin = {

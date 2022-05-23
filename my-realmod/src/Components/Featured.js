@@ -21,10 +21,6 @@ const SignupSchema = Yup.object().shape({
       "El Nombre de la descripcion excede el maximo de caracteres permitidos"
     )
     .required("El campo  es requerido"),
-  categoria: Yup.string()
-    .min(3, "Nombre de Categoria muy corto, ingresa una categoria mas larga")
-    .max(20, "La categoria excede el maximo de caracteres permitidos")
-    .required("El campo Categoria es requerido"),
   feactured: Yup.string()
     .min(10, "es muy corta, ingresa una palabra mas larga")
     .max(400, "La palabra excede el maximo de caracteres permitidos")
@@ -37,13 +33,11 @@ const Feactures = () => {
   const [values, handleInputChange, reset] = useForm({
     descripcion: "",
     feactured: "",
-
     foto: "",
     id: uuid(),
   });
 
   const { feactured, descripcion, foto, id } = values;
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addFeacturedAsync(values));
@@ -89,11 +83,9 @@ const Feactures = () => {
   return (
     <div className="container-fluid form">
       <h1>Add Feactured</h1>
-      
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Feactured</Form.Label>
-
           <Form.Control
             type="text"
             name="feactured"
@@ -103,7 +95,6 @@ const Feactures = () => {
             onChange={handleInputChange}
           />
           <Form.Label>Descripcion</Form.Label>
-
           <Form.Control
             type="text"
             name="descripcion"
@@ -112,7 +103,6 @@ const Feactures = () => {
             value={descripcion}
             onChange={handleInputChange}
           />
-
           <Form.Label>Imagen</Form.Label>
           <Form.Control
             type="file"
@@ -121,7 +111,6 @@ const Feactures = () => {
             onChange={handleFileChange}
           />
         </Form.Group>
-        
         <Button type="submit" className="btnLogin">
           Add
         </Button>

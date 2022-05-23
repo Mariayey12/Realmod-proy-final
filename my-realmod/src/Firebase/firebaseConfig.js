@@ -25,12 +25,16 @@ const google = new GoogleAuthProvider();
 const facebook = new GoogleAuthProvider();
 const baseDato = getFirestore();
 const baseDato1 = getFirestore();
+const baseDato2 = getFirestore();
+const baseDato3 = getFirestore();
 export {
     app,
     google,
     facebook,
     baseDato,
-    baseDato1
+    baseDato1,
+    baseDato2,
+    baseDato3
   }
 
 

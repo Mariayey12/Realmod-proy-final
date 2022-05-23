@@ -42,31 +42,31 @@ const Home = () => {
   };
 
   //-------------------editar modal-------------//
-  const [modal, setModal] = useState(false); //indicarle al modal que se active o no
-  const [modal1, setModal1] = useState(false); //indicarle al modal que se active o no
-  const [modale, getModal] = useState(false); //indicarle al modal que se active o no
-  const [enviarDatosModal, setEnviarDatosModal] = useState([]);
-  const [enviarDatosModal1, setEnviarDatosModal1] = useState([]);
-  const [obtenerDatosModal, getObtenerDatosModal] = useState([]);
+  const [modal, setModal] = useState(false); //indicarle al modal que se active o no(propiedade)
+  const [modal1, setModal1] = useState(false); //indicarle al modal que se active o no(facture)
+  const [modale, getModal] = useState(false); //indicarle al modal que se active o no (detalle propiedad)
+  const [enviarDatosModal, setEnviarDatosModal] = useState([]); //(propiedad)
+  const [enviarDatosModal1, setEnviarDatosModal1] = useState([]); //(feacture)
+  const [obtenerDatosModal, getObtenerDatosModal] = useState([]); //(detalle de propiedade)
 
-  //---------------------editar----------------------//
+  //---------------------editarPropiedade----------------------//
   const editar = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
     const traerPropiedades = acciones.find((t) => t.id === id);
-
     setModal(true);
     setEnviarDatosModal(traerPropiedades);
   };
 
-  //---------------------editar----------------------//
+
+  //---------------------editarFeacture----------------------//
   const editar1 = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
     const traerPropiedades1 = feactures.find((t) => t.id === id);
-
     setModal1(true);
     setEnviarDatosModal1(traerPropiedades1);
   };
-  //---------------------ver----------------------//
+
+  //---------------------verDetalledePropiedad----------------------//
   const ver = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
     const obtenerPropiedades = acciones.find((t) => t.id === id);
@@ -74,7 +74,8 @@ const Home = () => {
     getObtenerDatosModal(obtenerPropiedades);
   };
 
-  //-------------------------eliminar------------------------//
+
+  //-------------------------eliminarPropiedad------------------------//
   const handleEliminar = (id) => {
     Swal.fire({
       title: "Eliminar Propiedad?",
@@ -87,7 +88,6 @@ const Home = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteAsync(id));
-
         Swal.fire("Propiedad Eliminada!");
       }
     });
@@ -142,7 +142,6 @@ const Home = () => {
         <center>
           <h9 className="our">PROPERTIES</h9>
         </center>
-
         <img
           src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
           alt="logo"
@@ -156,6 +155,13 @@ const Home = () => {
           <Card key={fi.id}>
             <Card.Img variant="top" src={fi.foto} />
             <Card.Body></Card.Body>
+
+            <Button variant="success" onClick={() => editar1(fi.id)}>
+                Edit
+              </Button>
+              <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
+                Eliminar
+              </Button>
           </Card>
         ))}
       </div>
@@ -166,7 +172,6 @@ const Home = () => {
               className="banner"
               src="https://res.cloudinary.com/academiageek1/image/upload/v1652836090/product-realmod/header-f.png"
             />
-
             <Navbar bg="light" expand="lg">
               <Container fluid>
                 <Nav variant="tabs" defaultActiveKey="#first">
@@ -251,7 +256,6 @@ const Home = () => {
               <Card.Text>
                 <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png" />
                 {f.localitation}{" "}
-                
               </Card.Text>
 
               <div>
@@ -283,12 +287,16 @@ const Home = () => {
               <Button variant="success" onClick={() => editar(f.id)}>
                 Editar
               </Button>
+           
+              
               <Button variant="success" onClick={() => ver(f.id)}>
                 VerDetalle
               </Button>
+
               <Button variant="success" onClick={() => handleEliminar(f.id)}>
                 Eliminar
               </Button>
+              
             </Card.Body>
           </Card>
         ))}
@@ -312,13 +320,11 @@ const Home = () => {
         ""
       )}
 
-      {modale === true ? (
+      {/* {modale === true ? (
         <VerDetalle modale={obtenerDatosModal} getModal={getModal} />
       ) : (
         ""
-      )}
-
-
+      )} */}
 
       <div className="container-logo">
         <center>
@@ -331,7 +337,6 @@ const Home = () => {
       </div>
       <div className="ATRE">EXperties is here</div>
 
-
       <center>
         {" "}
         <img
@@ -340,8 +345,6 @@ const Home = () => {
           style={{ width: "90rem", margin: "auto" }}
         />
       </center>
-
-
 
       <div>
         <center>
