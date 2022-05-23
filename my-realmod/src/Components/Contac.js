@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Contact = () => {
   return (
@@ -26,6 +27,13 @@ const Contact = () => {
           <textarea placeholder="¿Como podemos Ayudarte...?" />
         </label>
         <button type="button">Contactanos</button>
+        <button type="button">
+        <li className="item_nav">
+              <Link to="/login"> Ir a la App</Link>
+            </li>
+        
+        </button>
+
       </form>
     </div>
   </div>

@@ -1,9 +1,19 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoutAsync } from "../redux/actions/actionLogin";
 import { useEffect } from "react";
-import { Button, Card, Container, Form, FormControl, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Container,
+  Form,
+  FormControl,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 import { deleteAsync, listAsyn } from "../redux/actions/actionAcciones";
 import { deleterAsync, listaAsyn } from "../redux/actions/actionFeactures";
 import "../style/listar.css";
@@ -101,119 +111,121 @@ const Home = () => {
     });
   };
 
+  //----------Map para Geolocalizacion----------------//
+
+  const [state, setState] = useState({
+    longitude: 0,
+    latitude: 0,
+  });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        // console.log(position);
+        setState({
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        });
+      },
+      function (error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+      },
+      {
+        enableHighAccuracy: true,
+      }
+    );
+  }, []);
+
   return (
     <div className="container-fluid divListar">
       <div className="container-logo">
         <center>
-          <h9 className="our">PROPERTIE</h9>
+          <h9 className="our">PROPERTIES</h9>
         </center>
 
-        
         <img
           src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
           alt="logo"
         />
-
-        <div className="ATRE">Featured Listings</div>
+        <div className="ATRE">
+          <h3>Featured Listings</h3>
+        </div>
       </div>
       <div className="divCards1">
-        { feactures?.map((fi) => (
+        {feactures?.map((fi) => (
           <Card key={fi.id}>
             <Card.Img variant="top" src={fi.foto} />
-            <Card.Body>
-              
-            </Card.Body>
+            <Card.Body></Card.Body>
           </Card>
         ))}
       </div>
       <center>
+        <div className="container-logo1">
+          <div className="container-logo3">
+            <img
+              className="banner"
+              src="https://res.cloudinary.com/academiageek1/image/upload/v1652836090/product-realmod/header-f.png"
+            />
 
-      <Navbar bg="light" expand="lg">
-        
-  <Container fluid>
-    
-    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-    <Nav variant="tabs" defaultActiveKey="#first">
-      <Nav.Item>
-        <Nav.Link href="#first">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="#link">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="#disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Nav>
-    <Navbar.Toggle aria-controls="navbarScroll" />
-    <Navbar.Collapse id="navbarScroll">
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
-       
-      {/*   <Nav.Link href="#action2">Link</Nav.Link> */}
-        <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            Something else here
-          </NavDropdown.Item>
-        </NavDropdown>
-        <Nav.Link href="#" disabled>
-          Link
-        </Nav.Link>
-      </Nav>
-      <Form className="d-flex">
-        <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        />
-        <Button variant="outline-success">Search</Button>
-      </Form>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-        <img
-          className="banner"
-          src="https://res.cloudinary.com/academiageek1/image/upload/v1652836090/product-realmod/header-f.png"
-        />
+            <Navbar bg="light" expand="lg">
+              <Container fluid>
+                <Nav variant="tabs" defaultActiveKey="#first">
+                  <Nav.Item>
+                    <Nav.Link href="#first">Sell</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="#link">Buy</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="#link">Rent</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+                <Form className="d-flex">
+                  <FormControl
+                    type="search"
+                    placeholder="Enter keyword here ..."
+                    className="me-10"
+                    aria-label="Search"
+                  />
+                </Form>
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
+                  <Nav
+                    className="me-auto my-10 my-lg-0"
+                    style={{ maxHeight: "70px" }}
+                    navbarScroll
+                  >
+                    {/*   <Nav.Link href="#action2">Link</Nav.Link> */}
+                    <NavDropdown
+                      title="Select Localitation"
+                      id="navbarScrollingDropdown"
+                    >
+                      <NavDropdown.Item href="#action3">
+                        Loulsiana, California
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action4">
+                        Downey, California
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action5">
+                        Abilene, Kansas
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action6">
+                        Poughhkee, NY
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav>
 
-
-        <Card>
-  <Card.Header>
-    <Nav variant="tabs" defaultActiveKey="#first">
-      <Nav.Item>
-        <Nav.Link href="#first">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="#link">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="#disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Nav>
-  </Card.Header>
-  <Card.Body>
-    <Card.Title>Special title treatment</Card.Title>
-    <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
+                  <Button variant="success">Search</Button>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
+          </div>
+        </div>
       </center>
 
       <div className="container-logo">
         <center>
-          <h9 className="our">OUR PROPIETIE</h9>
+          <h9 className="our">OUR PROPERTIES</h9>
         </center>
         <img
           src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
@@ -239,6 +251,7 @@ const Home = () => {
               <Card.Text>
                 <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png" />
                 {f.localitation}{" "}
+                
               </Card.Text>
 
               <div>
@@ -280,6 +293,7 @@ const Home = () => {
           </Card>
         ))}
       </div>
+
       {modal === true ? (
         <Editar modal={enviarDatosModal} setModal={setModal} />
       ) : (
@@ -304,11 +318,60 @@ const Home = () => {
         ""
       )}
 
-<div>
 
-<img src="https://res.cloudinary.com/academiageek1/image/upload/v1652838929/product-realmod/Footer-1.png" alt="Footer" style={{ width: "60rem", margin: "auto" }} />
-</div>
 
+      <div className="container-logo">
+        <center>
+          <h9 className="our"> PROPETIER</h9>
+        </center>
+        <img
+          src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
+          alt="logo"
+        />
+      </div>
+      <div className="ATRE">EXperties is here</div>
+
+
+      <center>
+        {" "}
+        <img
+          src="https://res.cloudinary.com/academiageek1/image/upload/v1653264045/product-realmod/acncrid28xjkqnqtwerk.png"
+          alt="Footer"
+          style={{ width: "90rem", margin: "auto" }}
+        />
+      </center>
+
+
+
+      <div>
+        <center>
+          {" "}
+          <img
+            src="https://res.cloudinary.com/academiageek1/image/upload/v1652838942/product-realmod/Our-partners.png"
+            alt="Footer"
+            style={{ width: "90rem", margin: "auto" }}
+          />
+        </center>
+      </div>
+
+      <div>
+        <center>
+          <img
+            src="https://res.cloudinary.com/academiageek1/image/upload/v1652838422/product-realmod/localizaci%C3%B3nproduc-realmod.png"
+            alt="Footer"
+            style={{ width: "90rem", margin: "auto" }}
+          />
+        </center>
+      </div>
+
+      <center>
+        {" "}
+        <img
+          src="https://res.cloudinary.com/academiageek1/image/upload/v1652838929/product-realmod/Footer-1.png"
+          alt="Footer"
+          style={{ width: "90rem", margin: "auto" }}
+        />
+      </center>
     </div>
   );
 };

@@ -21,11 +21,11 @@ const SignupSchema = Yup.object().shape({
     .required("El campo Categoria es requerido"),
   propiedad: Yup.string()
     .min(10, "es muy corta, ingresa una palabra mas larga")
-    .max(400, "La palabra excede el maximo de caracteres permitidos")
+    .max(400, "La  excede el maximo de caracteres permitidos")
     .required("El campo frase es requerido"),
 });
 
-const Propiedades = () => {
+const Agentes = () => {
   const dispatch = useDispatch();
 
   const [values, handleInputChange, reset] = useForm({
@@ -326,4 +326,4 @@ const Propiedades = () => {
   );
 };
 
-export default Propiedades;
+export default Agentes;

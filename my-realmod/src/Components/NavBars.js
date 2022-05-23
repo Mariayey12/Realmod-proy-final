@@ -16,7 +16,7 @@ const NavBars = () => {
   };
 
   return (
-    <div className="container-Nav">
+  <center>  <div className="container-Nav">
       <nav className="nav-item">
         <div className="container-logo">
           <img src={logo} alt="logo" />
@@ -82,7 +82,7 @@ const NavBars = () => {
           </ul>
         </div>
       </nav>
-    </div>
+    </div></center>
   );
 };
 
