@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
 import "../style/Propiedad.css";
-import { addPropiedadAsync } from "../redux/actions/actionAcciones";
+import { addAgenteAsync } from "../redux/actions/actionAgentes";
 import { FileUp } from "../helpers/FileUp";
 import Swal from "sweetalert2";
 import { useForm } from "../Hooks/useForm";
@@ -40,7 +40,7 @@ const Agentes = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addPropiedadAsync(values));
+    dispatch(addAgenteAsync(values));
     reset();
   };
 
@@ -116,7 +116,7 @@ const Agentes = () => {
             <option>Categorias</option>
             <option value="Sweet Home">Sweet Home</option>
             <option value="Marl Street">Marl Street</option>
-            <option value="villa">Villa</option>
+            <option value="Eco Bulider">Eco Bulider</option>
            
           </Form.Select>
           <Form.Label>Imagen</Form.Label>
@@ -127,10 +127,13 @@ const Agentes = () => {
             onChange={handleFileChange}
           />
         </Form.Group>
-        <Link to="/addAgente">Ver</Link>
+        
         <Button type="submit" className="btnLogin">
           Add
         </Button>
+        <li className="item_nav">
+              <Link to="/listAgente">Agente</Link>
+            </li> 
       </Form>
     </div>
   );

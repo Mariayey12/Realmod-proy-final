@@ -28,7 +28,7 @@ export const agentesReducers = (state = initialState, action) => {
         case typesAgentes.deleteAgente:
             return {
                 ...state,
-                feactures: state.agentes.filter(prod => prod.id !== action.payload)
+                agentes: state.agentes.filter(prod => prod.id !== action.payload)
             }
 
         default:

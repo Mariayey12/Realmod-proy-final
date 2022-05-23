@@ -7,57 +7,35 @@ import ReactImageMagnify from "react-image-magnify";
 import { Button, Card, Modal } from "react-bootstrap";
 import { verAsync } from "../redux/actions/actionAcciones";
 import "../style/detalle.css";
-const VerAgente = ({ modale, getModal }) => {
+const VerAgente = ({ modale1, getModal1 }) => {
   const dispatch = useDispatch();
   const [show, getShow] = useState(true);
 
   const handleClose = () => {
     getShow(false);
-    getModal(false);
+    getModal1(false);
   };
 
   const [values] = useForm({
-    foto: modale.foto,
-    propiedad: modale.propiedad,
-    valor: modale.valor,
-    opcion: modale.opcion,
-    tipo: modale.tipo,
-    id: modale.id,
-    categoria: modale.categoria,
-    localitation: modale.localitation,
-    cama: modale.cama,
-    baño: modale.baño,
-    pie: modale.pie,
-    parqueadero: modale.parqueadero,
-    piscina: modale.piscina,
-    seguridad: modale.seguridad,
-    libreria: modale.libreria,
-    medicina: modale.medicina,
-    Kingsize: modale.Kingsize,
-    juegos: modale.juegos,
-    descripcion: modale.descripcion,
+    foto: modale1.foto,
+    nombre: modale1.nombre,
+    categoria: modale1.valor,
+    experiencia: modale1.experiencia,
+    edad: modale1.edad,
+    id: modale1.id,
+    descripcion: modale1.descripcion,
+    localitation: modale1.localitation,
   });
 
   const {
     id,
     foto,
-    propiedad,
-    descripcion,
-    valor,
-    opcion,
-    tipo,
+    nombre,
     categoria,
+    experiencia,
+    edad,
+    descripcion,
     localitation,
-    cama,
-    baño,
-    pie,
-    parqueadero,
-    piscina,
-    seguridad,
-    libreria,
-    medicina,
-    Kingsize,
-    juegos,
   } = values;
 
   const handleSubmit = (e) => {
@@ -114,26 +92,16 @@ const VerAgente = ({ modale, getModal }) => {
               }}
             />
             <Card.Title background-color="primary">{categoria} </Card.Title>
-            <Card.Title>{propiedad}</Card.Title>
+            <Card.Title>{nombre}</Card.Title>
             <Card.Title>
               <img
                 src="https://res.cloudinary.com/academiageek1/image/upload/v1653077739/product-realmod/cv8yzmocblauxiyclyz3.png"
                 width="35"
                 alt="valor del inmueble"
               />
-              {valor}
+              {edad}
             </Card.Title>
-            <Card.Title>{opcion}</Card.Title>{" "}
-            <Card.Title>
-              {" "}
-              <img
-                src="https://res.cloudinary.com/academiageek1/image/upload/v1653077726/product-realmod/sgzfxppmmfthkl5agnz6.png"
-                width="59"
-                text-aling="center"
-                alt="inteligente"
-              />
-              Casa {tipo}
-            </Card.Title>
+            <Card.Title>{edad}</Card.Title>{" "}
             <Card.Text>
               <img
                 src="https://res.cloudinary.com/academiageek1/image/upload/v1652841210/product-realmod/mapa.png"
@@ -158,127 +126,6 @@ const VerAgente = ({ modale, getModal }) => {
               </div>
             </Card.Text>
             <h1> Caracteristicas</h1>
-            <div>
-              <Card.Text>
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1652920898/product-realmod/sldrdabp6nogpdvejht2.png"
-                  alt="cama"
-                  width="40"
-                  text-align="center"
-                  margin="auto"
-                />
-                {cama}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1652930257/product-realmod/vnluivy3h6mpinznu0ju.png"
-                  alt="baño"
-                  width="40"
-                  text-align="right"
-                  margin="auto"
-                />
-                {baño}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1652921111/product-realmod/ah2our7gc55nge6fj1wl.png"
-                  alt="pie cuadrado"
-                />
-                {pie}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653078190/product-realmod/xhb0qzrqj8hnoe2vk9xy.png"
-                  width="39"
-                  margin="auto"
-                  text-align="center"
-                  alt="parqueadero"
-                />
-                {parqueadero}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653077730/product-realmod/dctorkkqldy1fkpwsuwu.png"
-                  width="59"
-                  alt="piscina"
-                />
-                {piscina}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653081249/product-realmod/gkvku83m1y40qfadufvj.png"
-                  width="39"
-                  alt="area de seguridad"
-                />
-                {seguridad}
-              </Card.Text>
-            </div>
-            <div>
-              <p>
-                {" "}
-                <b>
-                  {" "}
-                  <Card.Text>
-                    {" "}
-                    <img
-                      src="https://res.cloudinary.com/academiageek1/image/upload/v1653078238/product-realmod/b0cgibqxkhr9kimxguea.png"
-                      width="49"
-                      alt="area de libreria"
-                      margin-right="40"
-                    />
-                    {libreria}
-                  </Card.Text>
-                </b>{" "}
-              </p>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653077702/product-realmod/sjzm4aftr4aqsgilxpio.png"
-                  width="59"
-                  alt="area de medicina"
-                />
-                {medicina}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653078242/product-realmod/nlkf3cqgx4u03zovlceo.png "
-                  width="59"
-                  alt="camas Kingsize"
-                />
-                {Kingsize}
-              </Card.Text>
-            </div>
-            <div>
-              <Card.Text>
-                {" "}
-                <img
-                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653078187/product-realmod/jgfdb6baguxwhhynxswf.png"
-                  width="39"
-                  alt="zona de juegos para niño"
-                />
-                {juegos}
-              </Card.Text>
-            </div>
             <h1>Descripcion</h1>
             <div>
               <Card.Text> {descripcion}</Card.Text>
@@ -298,18 +145,9 @@ const VerAgente = ({ modale, getModal }) => {
             >
               Guardar
             </Button>
-            <Button onClick={() => propiedad}>
-              {" "}
-              <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652938146/product-realmod/utrauersmkgwwuirt5q5.png"></img>
-              Add to Cart</Button>
-              <li className="item_nav">
-                <Link to="/"> </Link>
-              </li>
-            
-            <Button><img src="https://res.cloudinary.com/academiageek1/image/upload/v1652937731/product-realmod/p9uelt0rq6jgq7fxbfcp.png"></img>
-              Add to Favorite{" "} </Button>
-              
-           
+            <li className="item_nav">
+              <Link to="/"> </Link>
+            </li>
             <li className="item_nav">
               <Link to="/"> </Link>
             </li>

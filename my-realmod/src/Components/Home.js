@@ -91,9 +91,9 @@ const Home = () => {
   //---------------------editarAgente----------------------//
   const editar3 = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
-    const traerPropiedades3 = agentes.find((t) => t.id === id);
+    const traerAgentes = agentes.find((ti) => ti.id === id);
     setModal3(true);
-    setEnviarDatosModal3(traerPropiedades3);
+    setEnviarDatosModal3(traerAgentes);
   };
 
   //---------------------verDetalledePropiedad----------------------//
@@ -208,12 +208,12 @@ const Home = () => {
           <Card key={fi.id}>
             <Card.Img variant="top" src={fi.foto} />
             <Card.Body></Card.Body>
-               <Button variant="success" onClick={() => editar1(fi.id)}>
+               {/* <Button variant="success" onClick={() => editar1(fi.id)}>
                 Edit
               </Button>
               <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
                 Eliminar
-              </Button> 
+              </Button>  */}
           </Card>
 
           
@@ -389,6 +389,7 @@ const Home = () => {
      </div>
       <div className="ATRE">Experties is here</div>
       <div className="divCards3">
+
         {agentes?.map((fa) => (
           <Card key={fa.id}>
             <Card.Img variant="top" src={fa.foto} />
@@ -397,11 +398,12 @@ const Home = () => {
               <Card.Title>{fa.nombre}</Card.Title>
               <div>
                 <Card.Title>{fa.categoria} </Card.Title>
-              </div>
-              <div>
+              
                 <Card.Title>{fa.telefono}</Card.Title>
                 <img src='https://res.cloudinary.com/academiageek1/image/upload/v1653290381/product-realmod/j1b4jsy7ak0nxegwehgg.png' alt=''/>
               </div>
+
+
               <Button variant="success" onClick={() => editar3(fa.id)}>
                 EdiAgente
               </Button>
@@ -420,17 +422,19 @@ const Home = () => {
         ))}
       </div>
       
+
+      
       {modal3 === true ? (
         <EdiAgente modal3={enviarDatosModal3} setModal3={setModal3} />
       ) : (
         ""
       )}
 
-      {modale1 === true ? (
-        <VerAgente modale3={obtenerDatosModal3} getModal3={getModal1} />
+       {modale1 === true ? (
+        <VerAgente modale1={obtenerDatosModal3} getModal3={getModal1} />
       ) : (
         ""
-      )}
+      )} 
 
       <center>
         {" "}
