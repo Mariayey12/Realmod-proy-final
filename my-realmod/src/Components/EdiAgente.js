@@ -5,29 +5,28 @@ import { useForm } from "../Hooks/useForm";
 import { FileUp } from "../helpers/FileUp";
 import Swal from "sweetalert2";
 import { Button, Form, Modal } from "react-bootstrap";
-import { editAsync } from "../redux/actions/actionAcciones";
+import { editAsync } from "../redux/actions/actionAgentes";
 
-const Edi = ({ modal, setModal }) => {
+const EdiAgente = ({ modal3, setModal3 }) => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
     setShow(false);
-    setModal(false);
+    setModal3(false);
   };
 
   const [values, handleInputChange] = useForm({
-    propiedad: modal.propiedad,
-    id: modal.id,
-    categoria: modal.categoria,
-    localitation: modal.localitation,
-    cama: modal.cama,
-    baño: modal.baño,
-    pie: modal.pie,
+    nombre: modal3.nombre,
+    id: modal3.id,
+    categoria: modal3.categoria,
+    telefono: modal3.telefono,
+  
+  
 
   });
 
-  const {  id, propiedad ,categoria,localitation,cama,baño,pie } = values;
+  const {  id, nombre ,categoria,telefono } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,17 +79,17 @@ const Edi = ({ modal, setModal }) => {
       <>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Editar Propiedad</Modal.Title>
+            <Modal.Title>Editar Agente</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={() => handleSubmit()}>
-              <Form.Label>Propiedad</Form.Label>
+              <Form.Label>Agente</Form.Label>
               <Form.Control
                 type="text"
-                name="propiedad"
+                name="nombre"
                 required
-                placeholder="Nombre de la Propiedad"
-                value={propiedad}
+                placeholder="Nombre del Agente"
+                value={nombre}
                 onChange={handleInputChange}
               />
 
@@ -101,56 +100,21 @@ const Edi = ({ modal, setModal }) => {
                 onChange={handleInputChange}
                 required
               >
-                <option>Categoria</option>
-                <option value="studio">Studio Home</option>
-                <option value="apartamento">Apartments</option>
-                <option value="villa">Villa</option>
-                <option value="restaurant">Restaurant</option>
-                <option value="comercial">Comercial</option>
+               <option>Categorias</option>
+            <option value="Sweet Home">Sweet Home</option>
+            <option value="Marl Street">Marl Street</option>
+            <option value="villa">Villa</option>
               </Form.Select>
               <div>
-            <Form.Label>Localitation</Form.Label>
+            <Form.Label>telefono</Form.Label>
             <Form.Control
               type="text"
-              name="localitation"
+              name="telefono"
               required
-              placeholder="Localitation"
-              value={localitation}
+              placeholder="telefono"
+              value={telefono}
               onChange={handleInputChange}
             />
-          </div>
-          <div>
-            <Form.Label>Beds</Form.Label>
-            <Form.Control
-              type="text"
-              name="cama"
-              required
-              placeholder="Cama"
-              value={cama}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Baths</Form.Label>
-            <Form.Control
-              type="text"
-              name="baño"
-              required
-              placeholder="Baño"
-              value={baño}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Sqft</Form.Label>
-            <Form.Control
-              type="text"
-              name="pie"
-              required
-              placeholder="pie"
-              value={pie}
-              onChange={handleInputChange}
-            />{" "}
           </div>
               <Form.Label>Imagen</Form.Label>
               <Form.Control
@@ -183,4 +147,4 @@ const Edi = ({ modal, setModal }) => {
   );
 };
 
-export default Edi;
+export default EdiAgente;

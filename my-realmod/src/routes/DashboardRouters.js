@@ -21,10 +21,10 @@ const DashboardRouters = () => {
         <Route path="/" element={<Home />}/>
           <Route path="/addPropiedad" element={<Propiedades/>}/>
           <Route path="/addFeactured" element={<Feactures/>}/>
+          <Route path="/addAgente" element={<Agente/>}/>
           <Route path="/map" element={<MapView/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contacto" element={<Contact/>}/>
-          <Route path="/agente" element={<Agente/>}/>
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
       </>

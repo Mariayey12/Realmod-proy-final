@@ -51,8 +51,12 @@ const NavBars = () => {
             <li className="item_nav">
               <Link to="/contacto">Contac</Link>
             </li>
+           
             <li className="item_nav">
               <Link to="/addFeactured">AddF</Link>
+            </li> 
+            <li className="item_nav">
+              <Link to="/addAgente">Agente</Link>
             </li> 
             <li className="item_nav">
               <Link to="/"> </Link>

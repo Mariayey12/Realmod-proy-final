@@ -7,7 +7,10 @@ import { addContactoAsync } from "../redux/actions/actionContact";
 import Swal from "sweetalert2";
 import { useForm } from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
+import "../style/listar.css";
+import '../style/App.css';
 
+import '../style/landingPage.css'
 
 
 const SignupSchema = Yup.object().shape({
@@ -103,7 +106,10 @@ placeholder="Decripcion de la Propiedad"
 value={descripcion}
 onChange={handleInputChange}
 />
-<Link to="/contacto">Ver</Link>
+<Link to="/login"> Ir a la App</Link>
+{/* 
+<Link to="/contacto">Ver</Link> */}
+
         <Button type="submit" className="btnLogin">
           Add
         </Button>

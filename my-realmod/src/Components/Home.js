@@ -16,21 +16,25 @@ import {
 } from "react-bootstrap";
 import { deleteAsync, listAsyn } from "../redux/actions/actionAcciones";
 import { deleterAsync, listaAsyn } from "../redux/actions/actionFeactures";
+import { deletAsync, listarAsyn } from "../redux/actions/actionAgentes";
 import "../style/listar.css";
 import Editar from "./Editar";
-import Edit from "./Editar";
+import EdiAgente from "./EdiAgente";
+import Edit from "./Edit";
 import VerDetalle from "./VerDetalle";
+import VerAgente from "./VerAgente";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
 const Home = () => {
   const dispatch = useDispatch();
   const { acciones } = useSelector((store) => store.acciones);
-
   const { feactures } = useSelector((store) => store.feactures);
+  const { agentes } = useSelector((store) => store.agentes);
   useEffect(() => {
     dispatch(listAsyn());
     dispatch(listaAsyn());
+    dispatch(listarAsyn());
   }, []);
 
   //-----------------logou-------------------------------//
@@ -42,12 +46,30 @@ const Home = () => {
   };
 
   //-------------------editar modal-------------//
-  const [modal, setModal] = useState(false); //indicarle al modal que se active o no(propiedade)
-  const [modal1, setModal1] = useState(false); //indicarle al modal que se active o no(facture)
-  const [modale, getModal] = useState(false); //indicarle al modal que se active o no (detalle propiedad)
-  const [enviarDatosModal, setEnviarDatosModal] = useState([]); //(propiedad)
-  const [enviarDatosModal1, setEnviarDatosModal1] = useState([]); //(feacture)
-  const [obtenerDatosModal, getObtenerDatosModal] = useState([]); //(detalle de propiedade)
+
+  //indicarle al modal que se active o no(propiedade)
+  const [modal, setModal] = useState(false); 
+//indicarle al modal que se active o no(facture)
+  const [modal1, setModal1] = useState(false); 
+ //indicarle al modal que se active o no(agente)
+  const [modal3, setModal3] = useState(false);
+//indicarle al modal que se active o no (detalle propiedad)
+  const [modale, getModal] = useState(false); 
+//indicarle al modal que se active o no (detalle agente)
+  const [modale1, getModal1] = useState(false); 
+ //(propiedad)
+  const [enviarDatosModal, setEnviarDatosModal] = useState([]);
+//(feacture)
+  const [enviarDatosModal1, setEnviarDatosModal1] = useState([]); 
+//(agente)
+  const [enviarDatosModal3, setEnviarDatosModal3] = useState([]); 
+
+//(detalle de propiedade)
+  const [obtenerDatosModal, getObtenerDatosModal] = useState([]); 
+
+ //(detalle del agente)
+  const [obtenerDatosModal3, getObtenerDatosModal3] = useState([]);
+
 
   //---------------------editarPropiedade----------------------//
   const editar = (id) => {
@@ -66,6 +88,14 @@ const Home = () => {
     setEnviarDatosModal1(traerPropiedades1);
   };
 
+  //---------------------editarAgente----------------------//
+  const editar3 = (id) => {
+    //--------t= conseguir los datos de ese objeto con ese id--------------//
+    const traerPropiedades3 = agentes.find((t) => t.id === id);
+    setModal3(true);
+    setEnviarDatosModal3(traerPropiedades3);
+  };
+
   //---------------------verDetalledePropiedad----------------------//
   const ver = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
@@ -74,6 +104,13 @@ const Home = () => {
     getObtenerDatosModal(obtenerPropiedades);
   };
 
+//---------------------verDetalledeAgente----------------------//
+  const verAgente = (id) => {
+    //--------t= conseguir los datos de ese objeto con ese id--------------//
+    const obtenerAgentes = agentes.find((t) => t.id === id);
+    getModal1(true);
+    getObtenerDatosModal3(obtenerAgentes);
+  };
 
   //-------------------------eliminarPropiedad------------------------//
   const handleEliminar = (id) => {
@@ -110,7 +147,23 @@ const Home = () => {
       }
     });
   };
+  const handleEliminar3 = (id) => {
+    Swal.fire({
+      title: "Eliminar Feactured?",
+      text: "¿Desea eliminar esta feactured?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deletAsync(id));
 
+        Swal.fire("Feactured Eliminada!");
+      }
+    });
+  };
   //----------Map para Geolocalizacion----------------//
 
   const [state, setState] = useState({
@@ -155,16 +208,22 @@ const Home = () => {
           <Card key={fi.id}>
             <Card.Img variant="top" src={fi.foto} />
             <Card.Body></Card.Body>
-
-           
-             {/*  <Button variant="success" onClick={() => editar1(fi.id)}>
+               <Button variant="success" onClick={() => editar1(fi.id)}>
                 Edit
               </Button>
               <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
                 Eliminar
-              </Button> */}
+              </Button> 
           </Card>
+
+          
         ))}
+
+{modal1 === true ? (
+        <Edit modal1={enviarDatosModal1} setModal1={setModal1} />
+      ) : (
+        ""
+      )}
       </div>
       <center>
         <div className="container-logo1">
@@ -315,17 +374,9 @@ const Home = () => {
         ""
       )}
 
-      {modal1 === true ? (
-        <Edit modal1={enviarDatosModal1} setModal1={setModal1} />
-      ) : (
-        ""
-      )}
+    
 
-      {/* {modale === true ? (
-        <VerDetalle modale={obtenerDatosModal} getModal={getModal} />
-      ) : (
-        ""
-      )} */}
+     
 
       <div className="container-logo">
         <center>
@@ -335,8 +386,51 @@ const Home = () => {
           src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
           alt="logo"
         />
+     </div>
+      <div className="ATRE">Experties is here</div>
+      <div className="divCards3">
+        {agentes?.map((fa) => (
+          <Card key={fa.id}>
+            <Card.Img variant="top" src={fa.foto} />
+
+            <Card.Body>
+              <Card.Title>{fa.nombre}</Card.Title>
+              <div>
+                <Card.Title>{fa.categoria} </Card.Title>
+              </div>
+              <div>
+                <Card.Title>{fa.telefono}</Card.Title>
+                <img src='https://res.cloudinary.com/academiageek1/image/upload/v1653290381/product-realmod/j1b4jsy7ak0nxegwehgg.png' alt=''/>
+              </div>
+              <Button variant="success" onClick={() => editar3(fa.id)}>
+                EdiAgente
+              </Button>
+           
+              
+              <Button variant="success" onClick={() => verAgente(fa.id)}>
+                VerDetalle
+              </Button>
+
+              <Button variant="success" onClick={() => handleEliminar3(fa.id)}>
+                Eliminar
+              </Button>
+              
+            </Card.Body>
+          </Card>
+        ))}
       </div>
-      <div className="ATRE">EXperties is here</div>
+      
+      {modal3 === true ? (
+        <EdiAgente modal3={enviarDatosModal3} setModal3={setModal3} />
+      ) : (
+        ""
+      )}
+
+      {modale1 === true ? (
+        <VerAgente modale3={obtenerDatosModal3} getModal3={getModal1} />
+      ) : (
+        ""
+      )}
 
       <center>
         {" "}

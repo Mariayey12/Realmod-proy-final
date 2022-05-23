@@ -37,7 +37,7 @@ export const addAgenteSync = (agente) => {
 
 
 //---------------listarAgente----------------//
-export const listAsyn = () => {
+export const listarAsyn = () => {
     return async (dispatch) => {
         const colleccionTraer = await getDocs(collection(baseDato3, "AgentesBD"))
         const agente = []
@@ -46,11 +46,11 @@ export const listAsyn = () => {
                 ...doc.data()
             })
         })
-        dispatch(listSync(agente))
+        dispatch(listarSync(agente))
     }
 }
 
-export const listSync = (agente) => {
+export const listarSync = (agente) => {
     return {
         type: typesAgentes.listAgente,
         payload: agente
@@ -73,7 +73,7 @@ export const editAsync = (ids, agente) => {
         await updateDoc(documenRef, agente)
             .then(resp => {
                 dispatch(editSync(agente))
-                dispatch(listAsyn())
+                dispatch(listarAsyn())
                 console.log(resp)
             })
             .catch((err) => console.log(err))
@@ -103,7 +103,7 @@ export const verAsync = (ids, agente) => {
         await updateDoc(documenRef, agente)
             .then(resp => {
                 dispatch(verSync(agente))
-                dispatch(listAsyn())
+                dispatch(listarAsyn())
                 console.log(resp)
             })
             .catch((err) => console.log(err))
@@ -118,13 +118,8 @@ export const verSync = (agente) => {
 
 }
 
-
-
-
-
-
 //-------------------delete--------------------//
-export const deleteAsync = (id) => {
+export const deletAsync = (id) => {
     return async (dispatch) => {
         const colleccionTrae = collection(baseDato3, "AgentesBD")
         const q = query(colleccionTrae, where("id", "==", id))
@@ -132,11 +127,11 @@ export const deleteAsync = (id) => {
         traerDatosQ.forEach((docum => {
             deleteDoc(doc(baseDato3, "AgentesBD", docum.id))
         }))
-        dispatch(deleteSync(id))
+        dispatch(deletSync(id))
     }
 }
 
-export const deleteSync = (id) => {
+export const deletSync = (id) => {
     console.log(id);
     return {
         type: typesAgentes.deleteAgente,

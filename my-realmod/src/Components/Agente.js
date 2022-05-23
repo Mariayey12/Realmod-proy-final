@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 
 const SignupSchema = Yup.object().shape({
-  agente: Yup.string()
+  nombre: Yup.string()
     .min(2, "Nombre de Agente muy corto, ingresa un Agente mas largo")
     .max(50, "El Nombre de Agente excede el maximo de caracteres permitidos")
     .required("El campo Creador es requerido"),
@@ -19,48 +19,24 @@ const SignupSchema = Yup.object().shape({
     .min(3, "Nombre de Categoria muy corto, ingresa una categoria mas larga")
     .max(20, "La categoria excede el maximo de caracteres permitidos")
     .required("El campo Categoria es requerido"),
-  propiedad: Yup.string()
-    .min(10, "es muy corta, ingresa una palabra mas larga")
+  telefono: Yup.string()
+    .min(10, "es muy corta, ingresa un numero mas larga")
     .max(400, "La  excede el maximo de caracteres permitidos")
-    .required("El campo frase es requerido"),
+    .required("El campo es requerido"),
 });
 
 const Agentes = () => {
   const dispatch = useDispatch();
 
   const [values, handleInputChange, reset] = useForm({
-    valor: "",
-    propiedad: "",
+    nombre: "",
     categoria: "",
-    localitation: "",
-    cama: "",
-    baño: "",
-    pie: "",
+    telefono: "",
     foto: "",
     id: uuid(),
   });
 
-  const {
-    valor,
-    propiedad,
-    descripcion,
-    opcion,
-    tipo,
-    categoria,
-    localitation,
-    cama,
-    baño,
-    pie,
-    parqueadero,
-    piscina,
-    seguridad,
-    libreria,
-    medicina,
-    Kingsize,
-    juegos,
-    foto,
-    id,
-  } = values;
+  const { nombre, categoria, telefono, foto, id } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,65 +82,31 @@ const Agentes = () => {
   };
   return (
     <div className="container-fluid form">
-      
-      <h1>Property</h1>
+      <h1>Agente</h1>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 " controlId="formBasicEmail">
-          <Form.Label>Propiedad</Form.Label>
-
-          <Form.Control
-
-
-            type="text"
-            name="propiedad"
-            required
-            placeholder="Nombre de la Propiedad"
-            value={propiedad}
-            onChange={handleInputChange}
-          />
-              <Form.Label>Descripcion</Form.Label>
-
-<Form.Control
-
-
-  type="text"
-  name="descripcion"
-  required
-  placeholder="Decripcion de la Propiedad"
-  value={descripcion}
-  onChange={handleInputChange}
-/>
-          <Form.Label>Valor</Form.Label>
+          <Form.Label>Agente</Form.Label>
 
           <Form.Control
             type="text"
-            name="valor"
+            name="nombre"
             required
-            placeholder="Valor de la propiedad"
-            value={valor}
+            placeholder="Nombre de Agente"
+            value={nombre}
             onChange={handleInputChange}
           />
-          <Form.Label>Opcione</Form.Label>
+          <Form.Label>Telefono</Form.Label>
 
           <Form.Control
             type="text"
-            name="opcion"
+            name="telefono"
             required
-            placeholder="Opcion de la Propiedad"
-            value={opcion}
+            placeholder="Telefono movil"
+            value={telefono}
             onChange={handleInputChange}
           />
-          <Form.Label>Tipo de Casa</Form.Label>
 
-          <Form.Control
-            type="text"
-            name="tipo"
-            required
-            placeholder="Tipo de Propiedad "
-            value={tipo}
-            onChange={handleInputChange}
-          />
           <Form.Label>Categoría</Form.Label>
           <Form.Select
             aria-label="Default select example"
@@ -172,143 +114,11 @@ const Agentes = () => {
             onChange={handleInputChange}
           >
             <option>Categorias</option>
-            <option value="studio">Studio Home</option>
-            <option value="apartamento">Apartments</option>
+            <option value="Sweet Home">Sweet Home</option>
+            <option value="Marl Street">Marl Street</option>
             <option value="villa">Villa</option>
-            <option value="restaurant">Restaurant</option>
-            <option value="Comercial">Comercial</option>
+           
           </Form.Select>
-          <div>
-            <Form.Label>Localitation</Form.Label>
-
-            <Form.Control
-            className="control"
-              type="text"
-              name="localitation"
-              required
-              placeholder="Localitation"
-              value={localitation}
-              onChange={handleInputChange}
-              
-            />
-          </div>
-          <div>
-            <Form.Label>Beds</Form.Label>
-
-            <Form.Control
-              type="text"
-              name="cama"
-              required
-              placeholder="Cama"
-              value={cama}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Baths</Form.Label>
-            <Form.Control
-              type="text"
-              name="baño"
-              required
-              placeholder="baño"
-              value={baño}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <Form.Label>Sqft</Form.Label>
-            <Form.Control
-              type="text"
-              name="pie"
-              required
-              placeholder="pie"
-              value={pie}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-
-          <div>
-            <Form.Label>Parking lot</Form.Label>
-            <Form.Control
-              type="text"
-              name="parqueadero"
-              required
-              placeholder="parqueadero"
-              value={parqueadero}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-          <div>
-            <Form.Label>swimming pool</Form.Label>
-            <Form.Control
-              type="text"
-              name="piscina"
-              required
-              placeholder="piscina"
-              value={piscina}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-
-          <div>
-            <Form.Label>Private security</Form.Label>
-            <Form.Control
-              type="text"
-              name="seguridad"
-              required
-              placeholder="seguridad"
-              value={seguridad}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-
-          <div>
-            <Form.Label>Library Area</Form.Label>
-            <Form.Control
-              type="text"
-              name="libreria"
-              required
-              placeholder="Area de Libreia"
-              value={libreria}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-
-          <div>
-            <Form.Label>Medicine Area</Form.Label>
-            <Form.Control
-              type="text"
-              name="medicina"
-              required
-              placeholder="Area de Medicina"
-              value={medicina}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-
-          <div>
-            <Form.Label>Kingsize beds</Form.Label>
-            <Form.Control
-              type="text"
-              name="Kingsize"
-              required
-              placeholder="Camas Kingsize"
-              value={Kingsize}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
-
-          <div>
-            <Form.Label>Children's play area</Form.Label>
-            <Form.Control
-              type="text"
-              name="juegos"
-              required
-              placeholder="juegos"
-              value={juegos}
-              onChange={handleInputChange}
-            />{" "}
-          </div>
           <Form.Label>Imagen</Form.Label>
           <Form.Control
             type="file"
@@ -317,7 +127,7 @@ const Agentes = () => {
             onChange={handleFileChange}
           />
         </Form.Group>
-        <Link to="/listPropiedad">Ver</Link>
+        <Link to="/addAgente">Ver</Link>
         <Button type="submit" className="btnLogin">
           Add
         </Button>
