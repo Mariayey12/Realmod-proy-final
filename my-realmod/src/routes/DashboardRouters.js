@@ -8,9 +8,6 @@ import "../style/App.css"
 import About from '../Components/About'
 import Contact from '../Components/Contac'
 import Agente from '../Components/Agente'
-import MapView from '../Components/MapView'
-
-
 
 
 const DashboardRouters = () => {
@@ -23,10 +20,8 @@ const DashboardRouters = () => {
           <Route path="/addPropiedad" element={<Propiedades/>}/>
           <Route path="/addFeactured" element={<Feactures/>}/>
           <Route path="/addAgente" element={<Agente/>}/>
-          <Route path="/map" element={<MapView/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contacto" element={<Contact/>}/>
-       
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
       </>
