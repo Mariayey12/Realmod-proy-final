@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from './routes/App';
 import { store } from './redux/store/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import './style/Index.css'
+import './style/Index.css'
 
 
 
