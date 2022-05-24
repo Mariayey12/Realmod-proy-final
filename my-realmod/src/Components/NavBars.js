@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../image/Logo.png";
 import { logoutAsync } from "../redux/actions/actionLogin";
+// eslint-disable-next-line no-unused-vars
 import { Form, NavDropdown } from "react-bootstrap";
 
 const NavBars = () => {
@@ -91,11 +94,9 @@ const NavBars = () => {
                 </Link>
               </li>
 
-             
-             
-
               <li className="item_nav" onClick={logout}>
-                <a href="#">Cerrar</a>
+                
+                <a href="#" ><img src="https://res.cloudinary.com/academiageek1/image/upload/v1648615154/daily-bits-proyect-2/iconos/Property_1_x_rykdzs.svg"/></a>
               </li>
             </ul>
           </div>

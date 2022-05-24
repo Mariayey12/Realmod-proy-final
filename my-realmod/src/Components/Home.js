@@ -48,28 +48,27 @@ const Home = () => {
   //-------------------editar modal-------------//
 
   //indicarle al modal que se active o no(propiedade)
-  const [modal, setModal] = useState(false); 
-//indicarle al modal que se active o no(facture)
-  const [modal1, setModal1] = useState(false); 
- //indicarle al modal que se active o no(agente)
+  const [modal, setModal] = useState(false);
+  //indicarle al modal que se active o no(facture)
+  const [modal1, setModal1] = useState(false);
+  //indicarle al modal que se active o no(agente)
   const [modal3, setModal3] = useState(false);
-//indicarle al modal que se active o no (detalle propiedad)
-  const [modale, getModal] = useState(false); 
-//indicarle al modal que se active o no (detalle agente)
-  const [modale1, getModal1] = useState(false); 
- //(propiedad)
+  //indicarle al modal que se active o no (detalle propiedad)
+  const [modale, getModal] = useState(false);
+  //indicarle al modal que se active o no (detalle agente)
+  const [modale1, getModal1] = useState(false);
+  //(propiedad)
   const [enviarDatosModal, setEnviarDatosModal] = useState([]);
-//(feacture)
-  const [enviarDatosModal1, setEnviarDatosModal1] = useState([]); 
-//(agente)
-  const [enviarDatosModal3, setEnviarDatosModal3] = useState([]); 
+  //(feacture)
+  const [enviarDatosModal1, setEnviarDatosModal1] = useState([]);
+  //(agente)
+  const [enviarDatosModal3, setEnviarDatosModal3] = useState([]);
 
-//(detalle de propiedade)
-  const [obtenerDatosModal, getObtenerDatosModal] = useState([]); 
+  //(detalle de propiedade)
+  const [obtenerDatosModal, getObtenerDatosModal] = useState([]);
 
- //(detalle del agente)
+  //(detalle del agente)
   const [obtenerDatosModal3, getObtenerDatosModal3] = useState([]);
-
 
   //---------------------editarPropiedade----------------------//
   const editar = (id) => {
@@ -78,7 +77,6 @@ const Home = () => {
     setModal(true);
     setEnviarDatosModal(traerPropiedades);
   };
-
 
   //---------------------editarFeacture----------------------//
   const editar1 = (id) => {
@@ -104,7 +102,7 @@ const Home = () => {
     getObtenerDatosModal(obtenerPropiedades);
   };
 
-//---------------------verDetalledeAgente----------------------//
+  //---------------------verDetalledeAgente----------------------//
   const verAgente = (id) => {
     //--------t= conseguir los datos de ese objeto con ese id--------------//
     const obtenerAgentes = agentes.find((t) => t.id === id);
@@ -191,8 +189,7 @@ const Home = () => {
 
   return (
     <div className="container-fluid divListar">
-
-<center>
+      <center>
         <div className="container-logo1">
           <div className="container-logo3">
             <img
@@ -255,9 +252,6 @@ const Home = () => {
       </center>
 
       <div className="container-logo">
-
-
-
         <center>
           <h9 className="our">PROPERTIES</h9>
         </center>
@@ -274,24 +268,21 @@ const Home = () => {
           <Card key={fi.id}>
             <Card.Img variant="top" src={fi.foto} />
             <Card.Body></Card.Body>
-               {/* <Button variant="success" onClick={() => editar1(fi.id)}>
+            {/* <Button variant="success" onClick={() => editar1(fi.id)}>
                 Edit
               </Button>
               <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
                 Eliminar
               </Button>  */}
           </Card>
-
-          
         ))}
 
-{modal1 === true ? (
-        <Edit modal1={enviarDatosModal1} setModal1={setModal1} />
-      ) : (
-        ""
-      )}
+        {modal1 === true ? (
+          <Edit modal1={enviarDatosModal1} setModal1={setModal1} />
+        ) : (
+          ""
+        )}
       </div>
-      
 
       <div className="container-logo">
         <center>
@@ -352,8 +343,7 @@ const Home = () => {
               <Button variant="success" onClick={() => editar(f.id)}>
                 Editar
               </Button>
-           
-              
+
               <Button variant="success" onClick={() => ver(f.id)}>
                 VerDetalle
               </Button>
@@ -361,7 +351,6 @@ const Home = () => {
               <Button variant="success" onClick={() => handleEliminar(f.id)}>
                 Eliminar
               </Button>
-              
             </Card.Body>
           </Card>
         ))}
@@ -379,10 +368,6 @@ const Home = () => {
         ""
       )}
 
-    
-
-     
-
       <div className="container-logo">
         <center>
           <h9 className="our"> PROPETIER</h9>
@@ -391,10 +376,9 @@ const Home = () => {
           src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
           alt="logo"
         />
-     </div>
+      </div>
       <div className="ATRE">Experties is here</div>
       <div className="divCards3">
-
         {agentes?.map((fa) => (
           <Card key={fa.id}>
             <Card.Img variant="top" src={fa.foto} />
@@ -403,17 +387,18 @@ const Home = () => {
               <Card.Title>{fa.nombre}</Card.Title>
               <div>
                 <Card.Title>{fa.categoria} </Card.Title>
-              
-                <Card.Title>{fa.telefono}</Card.Title>
-                <img src='https://res.cloudinary.com/academiageek1/image/upload/v1653290381/product-realmod/j1b4jsy7ak0nxegwehgg.png' alt=''/>
-              </div>
 
+                <Card.Title>{fa.telefono}</Card.Title>
+                <img
+                  src="https://res.cloudinary.com/academiageek1/image/upload/v1653290381/product-realmod/j1b4jsy7ak0nxegwehgg.png"
+                  alt=""
+                />
+              </div>
 
               <Button variant="success" onClick={() => editar3(fa.id)}>
                 EdiAgente
               </Button>
-           
-              
+
               <Button variant="success" onClick={() => verAgente(fa.id)}>
                 VerDetalle
               </Button>
@@ -421,25 +406,22 @@ const Home = () => {
               <Button variant="success" onClick={() => handleEliminar3(fa.id)}>
                 Eliminar
               </Button>
-              
             </Card.Body>
           </Card>
         ))}
       </div>
-      
 
-      
       {modal3 === true ? (
         <EdiAgente modal3={enviarDatosModal3} setModal3={setModal3} />
       ) : (
         ""
       )}
 
-       {modale1 === true ? (
+      {modale1 === true ? (
         <VerAgente modale1={obtenerDatosModal3} getModal3={getModal1} />
       ) : (
         ""
-      )} 
+      )}
 
       <center>
         {" "}

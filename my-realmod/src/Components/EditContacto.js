@@ -27,6 +27,7 @@ const Edi = ({ modal, setModal }) => {
 
   });
 
+  // eslint-disable-next-line no-unused-vars
   const {  id, propiedad ,categoria,localitation,cama,baño,pie } = values;
 
   const handleSubmit = (e) => {

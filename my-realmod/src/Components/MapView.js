@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 //import { MapContainer as LeafletMap, TileLayer } from "react-leaflet"; */
 //import { Map as LeafletMap, TileLayer } from "react-leaflet";
+// eslint-disable-next-line no-unused-vars
 import { Map as LeafletMap, TileLayer } from "react-leaflet";
 import data from "../assets/data.json";
 import Markers from "./VenueMarkers";
-import "leaflet/dist/leaflet.css";
+//import "leaflet/dist/leaflet.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Map } from "leaflet";
 

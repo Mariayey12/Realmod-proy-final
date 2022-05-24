@@ -13,6 +13,7 @@ import '../style/App.css';
 import '../style/landingPage.css'
 
 
+// eslint-disable-next-line no-unused-vars
 const SignupSchema = Yup.object().shape({
 nombre: Yup.string()
     .min(2, "Nombre de Agente muy corto, ingresa un Agente mas largo")

@@ -3,7 +3,7 @@ import "../style/App.css";
 import { Link, useNavigate } from "react-router-dom";
 import "../style/landingPage.css";
 import { useEffect } from "react";
-import { Accordion, Button, Card, Carousel } from "react-bootstrap";
+import { Button, Card, Carousel } from "react-bootstrap";
 
 const About = () => {
   const navigate = useNavigate();

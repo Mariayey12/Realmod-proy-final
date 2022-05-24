@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navigate, Route, Routes,Switch } from 'react-router-dom'
+import {Navigate, Route, Routes } from 'react-router-dom'
 import Propiedades  from '../Components/Propiedades'
 import Feactures  from '../Components/Featured'
 import Home from '../Components/Home'
