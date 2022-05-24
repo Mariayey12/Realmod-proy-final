@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import logo from '../image/Logo.png';
 import '../style/App.css';
 import { Link, useNavigate } from "react-router-dom";
