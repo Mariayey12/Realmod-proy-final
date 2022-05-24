@@ -9,17 +9,34 @@ describe("Prueba en loginReducers", () => {
     const action = {
       payload: {
         email: "",
-        password: "",
-      },
+        password: ""
+      }
     };
 
     const state = loginReducers(initState, action);
 
     expect(state).toEqual({
       email: "mmariayennifer.25@gmail.com",
-      password: "4567/",
+      password: "4567/"
+
     });
   });
 });
+
+
+test("Cerrar sesion- logout", () =>{
+
+    const initState = {
+        email: "mmariayennifer.25@gmail.com",
+        password: "4567/"
+
+    };
+    const action={
+        typesLogin:"logout"
+    };
+    const state = loginReducers(initState, action);
+    expect(state).toEqual()
+    
+})
 
 

@@ -191,41 +191,8 @@ const Home = () => {
 
   return (
     <div className="container-fluid divListar">
-      <div className="container-logo">
-        <center>
-          <h9 className="our">PROPERTIES</h9>
-        </center>
-        <img
-          src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
-          alt="logo"
-        />
-        <div className="ATRE">
-          <h3>Featured Listings</h3>
-        </div>
-      </div>
-      <div className="divCards1">
-        {feactures?.map((fi) => (
-          <Card key={fi.id}>
-            <Card.Img variant="top" src={fi.foto} />
-            <Card.Body></Card.Body>
-               {/* <Button variant="success" onClick={() => editar1(fi.id)}>
-                Edit
-              </Button>
-              <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
-                Eliminar
-              </Button>  */}
-          </Card>
 
-          
-        ))}
-
-{modal1 === true ? (
-        <Edit modal1={enviarDatosModal1} setModal1={setModal1} />
-      ) : (
-        ""
-      )}
-      </div>
-      <center>
+<center>
         <div className="container-logo1">
           <div className="container-logo3">
             <img
@@ -279,7 +246,6 @@ const Home = () => {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
-
                   <Button variant="success">Search</Button>
                 </Navbar.Collapse>
               </Container>
@@ -287,6 +253,45 @@ const Home = () => {
           </div>
         </div>
       </center>
+
+      <div className="container-logo">
+
+
+
+        <center>
+          <h9 className="our">PROPERTIES</h9>
+        </center>
+        <img
+          src="https://res.cloudinary.com/academiageek1/image/upload/v1652919244/product-realmod/zrjfnzznvwo9ebnprxxr.png"
+          alt="logo"
+        />
+        <div className="ATRE">
+          <h3>Featured Listings</h3>
+        </div>
+      </div>
+      <div className="divCards1">
+        {feactures?.map((fi) => (
+          <Card key={fi.id}>
+            <Card.Img variant="top" src={fi.foto} />
+            <Card.Body></Card.Body>
+               {/* <Button variant="success" onClick={() => editar1(fi.id)}>
+                Edit
+              </Button>
+              <Button variant="success" onClick={() => handleEliminar1(fi.id)}>
+                Eliminar
+              </Button>  */}
+          </Card>
+
+          
+        ))}
+
+{modal1 === true ? (
+        <Edit modal1={enviarDatosModal1} setModal1={setModal1} />
+      ) : (
+        ""
+      )}
+      </div>
+      
 
       <div className="container-logo">
         <center>
