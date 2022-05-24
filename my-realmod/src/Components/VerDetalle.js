@@ -285,13 +285,13 @@ const VerDetalle = ({ modale, getModal }) => {
             <div>
               <Card.Text> {descripcion}</Card.Text>
             </div>
-            {/*  <Button
+              <Button
               variant="secondary"
               className="btnCrud"
               onClick={() => handleClose}
             >
               Close
-            </Button> */}
+            </Button> 
             <Button
               type="submit"
               variant="primary"
@@ -306,7 +306,7 @@ const VerDetalle = ({ modale, getModal }) => {
               <img src="https://res.cloudinary.com/academiageek1/image/upload/v1652938146/product-realmod/utrauersmkgwwuirt5q5.png"></img>
               Add to Cart</Button>
               <li className="item_nav">
-                <Link to="/"> </Link>
+                <Link to="/carrito"> </Link>
               </li>
             
             <Button><img src="https://res.cloudinary.com/academiageek1/image/upload/v1652937731/product-realmod/p9uelt0rq6jgq7fxbfcp.png"></img>
@@ -314,7 +314,7 @@ const VerDetalle = ({ modale, getModal }) => {
               
            
             <li className="item_nav">
-              <Link to="/"> </Link>
+              <Link to="/home"> </Link>
             </li>
           </Modal.Body>
         </Modal>

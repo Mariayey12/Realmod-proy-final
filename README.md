@@ -3,8 +3,7 @@
 **El proyecto es una pagina web,   esta basada haciendo uso de React JS y Redux, marcos de trabajo CSS Boostrap, react-Boostrap,  **
 
 # 📝 Descripción General del Proyecto
- El proyecto consiste en un producto web que te permite realizar test de preguntas para medir tu conocimiento en programación y diseño
-
+Aplicativo web basado en React, Redux yJavascript como marco de trabajo ⚒,como marco de trabajo para maquetar y diseño css , react-Bootstrap, para cargar cards de las imágenes se guardan en una base de datos y se suben en un servidor post Cloudinary 
 #  Intalacion 
 ---Gestor de instalacion de paquetes npm 
 ---Clona este proyecto 
@@ -13,24 +12,24 @@
 ---Corre el ambiente local npm rum start o  npm start
 ## 🚀 Deployment
 Si quieres ver la demo de este proyecto desplegado, puedes visitar Demo del proyecto 
-
+## [Despliegue Firebase]()
 ## [Despliegue Netefly]()
 
-## ✅ Entrega del Proyecto [Video Explicativo]()
+
 
 
 ## Estilos 
 ·Paletas Colores
 :root {
-  --white: #fffffe; 
-  --black: #16161a; 
-  --primary: #7f5af0; 
+  --white: #FFFFFF; 
+  --black: #000000; 
+  --primary: #2D264B; 
   --secondary: #a786df; 
   --tertiary: #72757e; 
-  --green: #2cb67d; 
-  --grey: #94a1b2; 
+  --green: #00C194; 
+  --grey: #E4E7E6; 
   --purple: #6b47dc; 
-  --neutral: #232e35; 
+  --neutral: #646A6A; 
   --red: #ef4565; 
   --subtitle2: 600 0.75rem/normal Nunito; 
   --headline-headline1: extrabold 1.5rem/normal Nunito; 
@@ -50,5 +49,4 @@ body {
   background-color: var(--black);
   font: var(--body1-regular);
 }
-## Pagina Realmond
-
+ 

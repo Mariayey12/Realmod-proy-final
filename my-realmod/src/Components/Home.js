@@ -236,13 +236,13 @@ const Home = () => {
               <Container fluid>
                 <Nav variant="tabs" defaultActiveKey="#first">
                   <Nav.Item>
-                    <Nav.Link href="#first">Sell</Nav.Link>
+                    <Nav.Link href="#Sell">Sell</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="#link">Buy</Nav.Link>
+                    <Nav.Link href="#Buy">Buy</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="#link">Rent</Nav.Link>
+                    <Nav.Link href="#REnt">Rent</Nav.Link>
                   </Nav.Item>
                 </Nav>
                 <Form className="d-flex">

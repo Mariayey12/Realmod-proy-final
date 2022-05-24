@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginEmailPassAsync, loginGoogle } from "../redux/actions/actionLogin";
+import { loginEmailPassAsync, loginGoogle,loginFacebook } from "../redux/actions/actionLogin";
 import "../style/Login.css";
 import logo from '../image/Logo.png'
 import { FaFacebookF } from "react-icons/fa";
@@ -27,6 +27,9 @@ const Login = () => {
 
   const handleLoginGoogle = () => {
     dispatch(loginGoogle());
+  };
+  const handleLoginFacebook = () => {
+    dispatch(loginFacebook());
   };
 
   return (
@@ -71,7 +74,7 @@ const Login = () => {
               </button>
             </div>
 
-            <div className="divFacebook">
+            <div className="divFacebook"  onClick={() => handleLoginFacebook()}>
               <button type="submit" className="facebook">
                 <FaFacebookF/>
                 Ingresar con Facebook

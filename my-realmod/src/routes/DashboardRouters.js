@@ -12,6 +12,7 @@ import MapView from '../Components/MapView'
 
 
 
+
 const DashboardRouters = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const DashboardRouters = () => {
           <Route path="/map" element={<MapView/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contacto" element={<Contact/>}/>
+       
           <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
       </>
